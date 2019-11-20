@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/e-commerce_register.css">
+	 <script src="./js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="headder-top">
+        <div class="width1200 headder-top-content">
+            <div>欢迎来到信达！ 请<a href="/toPage?url=service_login.html" class="font-aqua">登录</a> <a href="/toPage?url=service_register.html" class="font-aqua">快速注册 </a>
+            </div>
+        </div>
+    </div>
+    <ul class="content width1200">
+        <ul class="xinda-logo">
+            <li>
+                <img src="./images/logo-blue.png" alt="">
+            </li>
+            <li>
+                欢迎注册
+            </li>
+        </ul>
+        <h2 class="title">信达服务商端</h2>
+        <ul class="main">
+            <ul class="input">
+                <li>
+                    <input class = "serv_phone" type="text" placeholder="请输入手机号">
+                </li>
+                <li>
+                    <input type="text" class="code" placeholder="请输入验证码">
+                    <img  class="vimg" th:src="@{code}"  style="cursor:pointer;" title="看不清可单击图片刷新"/>
+                </li>
+                <li>
+                    <select id="province"name="province" >
+                            <option value="-1">-- 请选择省 --</option>
+                        </select>
+                    <select id="city" name="city" >
+                            <option value="-1">-- 请选择市 --</option>
+                        </select>
+                    <select id="area" name="area" >
+                            <option value="-1">-- 请选择县(区) --</option>
+                        </select>
+                </li>
+                <li>
+                    <input class = "serv_password" type="text" placeholder="请设置密码">
+                </li>
+                <li>
+                    <button class="login-btn font-aqua" onclick = "ServiceRegister()">立即注册</button>
+                </li>
+            </ul>
+            <ul class="register">
+                <li>已有账号？</li>
+                <li class="font-aqua"><a class=" font-aqua" href="/toPage?url=service_login.html">立即登录>></a></li>
+                <li>
+                    <img src="./images/login-man.png" alt="">
+                </li>
+            </ul>
+        </ul>
+    </ul>
+            <script src="./js/service_register.js"></script>
+</body>
+
+</html>

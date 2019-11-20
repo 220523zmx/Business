@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datangedu.cn.dao.mapper.ServiceproviderMapper">
+  <resultMap id="BaseResultMap" type="com.datangedu.cn.model.serviceprovider.Serviceprovider">
+    <id column="SERV_PROVIDER_ID" jdbcType="VARCHAR" property="servProviderId" />
+    <result column="SERV_PROVIDER_NAME" jdbcType="VARCHAR" property="servProviderName" />
+    <result column="SERV_PROVIDER_REGION" jdbcType="VARCHAR" property="servProviderRegion" />
+    <result column="SERV_PROVIDER_PHONE" jdbcType="VARCHAR" property="servProviderPhone" />
+    <result column="SERV_PROVIDER_PASSWORD" jdbcType="VARCHAR" property="servProviderPassword" />
+    <result column="SERV_PROVIDER_STATE" jdbcType="INTEGER" property="servProviderState" />
+    <result column="SERV_PROVIDER_INTRODUCTION" jdbcType="VARCHAR" property="servProviderIntroduction" />
+    <result column="SERV_PROVIDER_EMAIL" jdbcType="VARCHAR" property="servProviderEmail" />
+    <result column="SERV_PROVIDER_STARTTIME" jdbcType="TIMESTAMP" property="servProviderStarttime" />
+    <result column="SERV_COMPANY_INTRDUCTION" jdbcType="VARCHAR" property="servCompanyIntrduction" />
+    <result column="SERV_PROVIDER_WORKTIME" jdbcType="VARCHAR" property="servProviderWorktime" />
+    <result column="SERV_PROVIDER_QQ" jdbcType="VARCHAR" property="servProviderQq" />
+    <result column="SERV_PROVIDER_WEICHART" jdbcType="VARCHAR" property="servProviderWeichart" />
+    <result column="SERV_PROVIDER_CSPHONE" jdbcType="VARCHAR" property="servProviderCsphone" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    <result column="SERV_PROVIDER_IMG" jdbcType="LONGVARBINARY" property="servProviderImg" />
+    <result column="SERV_PROVIDER_BUSINESSLICENSE" jdbcType="LONGVARBINARY" property="servProviderBusinesslicense" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SERV_PROVIDER_ID, SERV_PROVIDER_NAME, SERV_PROVIDER_REGION, SERV_PROVIDER_PHONE, 
+    SERV_PROVIDER_PASSWORD, SERV_PROVIDER_STATE, SERV_PROVIDER_INTRODUCTION, SERV_PROVIDER_EMAIL, 
+    SERV_PROVIDER_STARTTIME, SERV_COMPANY_INTRDUCTION, SERV_PROVIDER_WORKTIME, SERV_PROVIDER_QQ, 
+    SERV_PROVIDER_WEICHART, SERV_PROVIDER_CSPHONE
+  </sql>
+  <sql id="Blob_Column_List">
+    SERV_PROVIDER_IMG, SERV_PROVIDER_BUSINESSLICENSE
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from serviceprovider
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from serviceprovider
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from serviceprovider
+    where SERV_PROVIDER_ID = #{servProviderId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from serviceprovider
+    where SERV_PROVIDER_ID = #{servProviderId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample">
+    delete from serviceprovider
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    insert into serviceprovider (SERV_PROVIDER_ID, SERV_PROVIDER_NAME, 
+      SERV_PROVIDER_REGION, SERV_PROVIDER_PHONE, 
+      SERV_PROVIDER_PASSWORD, SERV_PROVIDER_STATE, 
+      SERV_PROVIDER_INTRODUCTION, SERV_PROVIDER_EMAIL, 
+      SERV_PROVIDER_STARTTIME, SERV_COMPANY_INTRDUCTION, 
+      SERV_PROVIDER_WORKTIME, SERV_PROVIDER_QQ, SERV_PROVIDER_WEICHART, 
+      SERV_PROVIDER_CSPHONE, SERV_PROVIDER_IMG, 
+      SERV_PROVIDER_BUSINESSLICENSE)
+    values (#{servProviderId,jdbcType=VARCHAR}, #{servProviderName,jdbcType=VARCHAR}, 
+      #{servProviderRegion,jdbcType=VARCHAR}, #{servProviderPhone,jdbcType=VARCHAR}, 
+      #{servProviderPassword,jdbcType=VARCHAR}, #{servProviderState,jdbcType=INTEGER}, 
+      #{servProviderIntroduction,jdbcType=VARCHAR}, #{servProviderEmail,jdbcType=VARCHAR}, 
+      #{servProviderStarttime,jdbcType=TIMESTAMP}, #{servCompanyIntrduction,jdbcType=VARCHAR}, 
+      #{servProviderWorktime,jdbcType=VARCHAR}, #{servProviderQq,jdbcType=VARCHAR}, #{servProviderWeichart,jdbcType=VARCHAR}, 
+      #{servProviderCsphone,jdbcType=VARCHAR}, #{servProviderImg,jdbcType=LONGVARBINARY}, 
+      #{servProviderBusinesslicense,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    insert into serviceprovider
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="servProviderId != null">
+        SERV_PROVIDER_ID,
+      </if>
+      <if test="servProviderName != null">
+        SERV_PROVIDER_NAME,
+      </if>
+      <if test="servProviderRegion != null">
+        SERV_PROVIDER_REGION,
+      </if>
+      <if test="servProviderPhone != null">
+        SERV_PROVIDER_PHONE,
+      </if>
+      <if test="servProviderPassword != null">
+        SERV_PROVIDER_PASSWORD,
+      </if>
+      <if test="servProviderState != null">
+        SERV_PROVIDER_STATE,
+      </if>
+      <if test="servProviderIntroduction != null">
+        SERV_PROVIDER_INTRODUCTION,
+      </if>
+      <if test="servProviderEmail != null">
+        SERV_PROVIDER_EMAIL,
+      </if>
+      <if test="servProviderStarttime != null">
+        SERV_PROVIDER_STARTTIME,
+      </if>
+      <if test="servCompanyIntrduction != null">
+        SERV_COMPANY_INTRDUCTION,
+      </if>
+      <if test="servProviderWorktime != null">
+        SERV_PROVIDER_WORKTIME,
+      </if>
+      <if test="servProviderQq != null">
+        SERV_PROVIDER_QQ,
+      </if>
+      <if test="servProviderWeichart != null">
+        SERV_PROVIDER_WEICHART,
+      </if>
+      <if test="servProviderCsphone != null">
+        SERV_PROVIDER_CSPHONE,
+      </if>
+      <if test="servProviderImg != null">
+        SERV_PROVIDER_IMG,
+      </if>
+      <if test="servProviderBusinesslicense != null">
+        SERV_PROVIDER_BUSINESSLICENSE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="servProviderId != null">
+        #{servProviderId,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderName != null">
+        #{servProviderName,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderRegion != null">
+        #{servProviderRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderPhone != null">
+        #{servProviderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderPassword != null">
+        #{servProviderPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderState != null">
+        #{servProviderState,jdbcType=INTEGER},
+      </if>
+      <if test="servProviderIntroduction != null">
+        #{servProviderIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderEmail != null">
+        #{servProviderEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderStarttime != null">
+        #{servProviderStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servCompanyIntrduction != null">
+        #{servCompanyIntrduction,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderWorktime != null">
+        #{servProviderWorktime,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderQq != null">
+        #{servProviderQq,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderWeichart != null">
+        #{servProviderWeichart,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderCsphone != null">
+        #{servProviderCsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderImg != null">
+        #{servProviderImg,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="servProviderBusinesslicense != null">
+        #{servProviderBusinesslicense,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultType="java.lang.Long">
+    select count(*) from serviceprovider
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update serviceprovider
+    <set>
+      <if test="record.servProviderId != null">
+        SERV_PROVIDER_ID = #{record.servProviderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderName != null">
+        SERV_PROVIDER_NAME = #{record.servProviderName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderRegion != null">
+        SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderPhone != null">
+        SERV_PROVIDER_PHONE = #{record.servProviderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderPassword != null">
+        SERV_PROVIDER_PASSWORD = #{record.servProviderPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderState != null">
+        SERV_PROVIDER_STATE = #{record.servProviderState,jdbcType=INTEGER},
+      </if>
+      <if test="record.servProviderIntroduction != null">
+        SERV_PROVIDER_INTRODUCTION = #{record.servProviderIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderEmail != null">
+        SERV_PROVIDER_EMAIL = #{record.servProviderEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderStarttime != null">
+        SERV_PROVIDER_STARTTIME = #{record.servProviderStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.servCompanyIntrduction != null">
+        SERV_COMPANY_INTRDUCTION = #{record.servCompanyIntrduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderWorktime != null">
+        SERV_PROVIDER_WORKTIME = #{record.servProviderWorktime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderQq != null">
+        SERV_PROVIDER_QQ = #{record.servProviderQq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderWeichart != null">
+        SERV_PROVIDER_WEICHART = #{record.servProviderWeichart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderCsphone != null">
+        SERV_PROVIDER_CSPHONE = #{record.servProviderCsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderImg != null">
+        SERV_PROVIDER_IMG = #{record.servProviderImg,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="record.servProviderBusinesslicense != null">
+        SERV_PROVIDER_BUSINESSLICENSE = #{record.servProviderBusinesslicense,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update serviceprovider
+    set SERV_PROVIDER_ID = #{record.servProviderId,jdbcType=VARCHAR},
+      SERV_PROVIDER_NAME = #{record.servProviderName,jdbcType=VARCHAR},
+      SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=VARCHAR},
+      SERV_PROVIDER_PHONE = #{record.servProviderPhone,jdbcType=VARCHAR},
+      SERV_PROVIDER_PASSWORD = #{record.servProviderPassword,jdbcType=VARCHAR},
+      SERV_PROVIDER_STATE = #{record.servProviderState,jdbcType=INTEGER},
+      SERV_PROVIDER_INTRODUCTION = #{record.servProviderIntroduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_EMAIL = #{record.servProviderEmail,jdbcType=VARCHAR},
+      SERV_PROVIDER_STARTTIME = #{record.servProviderStarttime,jdbcType=TIMESTAMP},
+      SERV_COMPANY_INTRDUCTION = #{record.servCompanyIntrduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_WORKTIME = #{record.servProviderWorktime,jdbcType=VARCHAR},
+      SERV_PROVIDER_QQ = #{record.servProviderQq,jdbcType=VARCHAR},
+      SERV_PROVIDER_WEICHART = #{record.servProviderWeichart,jdbcType=VARCHAR},
+      SERV_PROVIDER_CSPHONE = #{record.servProviderCsphone,jdbcType=VARCHAR},
+      SERV_PROVIDER_IMG = #{record.servProviderImg,jdbcType=LONGVARBINARY},
+      SERV_PROVIDER_BUSINESSLICENSE = #{record.servProviderBusinesslicense,jdbcType=LONGVARBINARY}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update serviceprovider
+    set SERV_PROVIDER_ID = #{record.servProviderId,jdbcType=VARCHAR},
+      SERV_PROVIDER_NAME = #{record.servProviderName,jdbcType=VARCHAR},
+      SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=VARCHAR},
+      SERV_PROVIDER_PHONE = #{record.servProviderPhone,jdbcType=VARCHAR},
+      SERV_PROVIDER_PASSWORD = #{record.servProviderPassword,jdbcType=VARCHAR},
+      SERV_PROVIDER_STATE = #{record.servProviderState,jdbcType=INTEGER},
+      SERV_PROVIDER_INTRODUCTION = #{record.servProviderIntroduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_EMAIL = #{record.servProviderEmail,jdbcType=VARCHAR},
+      SERV_PROVIDER_STARTTIME = #{record.servProviderStarttime,jdbcType=TIMESTAMP},
+      SERV_COMPANY_INTRDUCTION = #{record.servCompanyIntrduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_WORKTIME = #{record.servProviderWorktime,jdbcType=VARCHAR},
+      SERV_PROVIDER_QQ = #{record.servProviderQq,jdbcType=VARCHAR},
+      SERV_PROVIDER_WEICHART = #{record.servProviderWeichart,jdbcType=VARCHAR},
+      SERV_PROVIDER_CSPHONE = #{record.servProviderCsphone,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    update serviceprovider
+    <set>
+      <if test="servProviderName != null">
+        SERV_PROVIDER_NAME = #{servProviderName,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderRegion != null">
+        SERV_PROVIDER_REGION = #{servProviderRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderPhone != null">
+        SERV_PROVIDER_PHONE = #{servProviderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderPassword != null">
+        SERV_PROVIDER_PASSWORD = #{servProviderPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderState != null">
+        SERV_PROVIDER_STATE = #{servProviderState,jdbcType=INTEGER},
+      </if>
+      <if test="servProviderIntroduction != null">
+        SERV_PROVIDER_INTRODUCTION = #{servProviderIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderEmail != null">
+        SERV_PROVIDER_EMAIL = #{servProviderEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderStarttime != null">
+        SERV_PROVIDER_STARTTIME = #{servProviderStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servCompanyIntrduction != null">
+        SERV_COMPANY_INTRDUCTION = #{servCompanyIntrduction,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderWorktime != null">
+        SERV_PROVIDER_WORKTIME = #{servProviderWorktime,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderQq != null">
+        SERV_PROVIDER_QQ = #{servProviderQq,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderWeichart != null">
+        SERV_PROVIDER_WEICHART = #{servProviderWeichart,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderCsphone != null">
+        SERV_PROVIDER_CSPHONE = #{servProviderCsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderImg != null">
+        SERV_PROVIDER_IMG = #{servProviderImg,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="servProviderBusinesslicense != null">
+        SERV_PROVIDER_BUSINESSLICENSE = #{servProviderBusinesslicense,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where SERV_PROVIDER_ID = #{servProviderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    update serviceprovider
+    set SERV_PROVIDER_NAME = #{servProviderName,jdbcType=VARCHAR},
+      SERV_PROVIDER_REGION = #{servProviderRegion,jdbcType=VARCHAR},
+      SERV_PROVIDER_PHONE = #{servProviderPhone,jdbcType=VARCHAR},
+      SERV_PROVIDER_PASSWORD = #{servProviderPassword,jdbcType=VARCHAR},
+      SERV_PROVIDER_STATE = #{servProviderState,jdbcType=INTEGER},
+      SERV_PROVIDER_INTRODUCTION = #{servProviderIntroduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_EMAIL = #{servProviderEmail,jdbcType=VARCHAR},
+      SERV_PROVIDER_STARTTIME = #{servProviderStarttime,jdbcType=TIMESTAMP},
+      SERV_COMPANY_INTRDUCTION = #{servCompanyIntrduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_WORKTIME = #{servProviderWorktime,jdbcType=VARCHAR},
+      SERV_PROVIDER_QQ = #{servProviderQq,jdbcType=VARCHAR},
+      SERV_PROVIDER_WEICHART = #{servProviderWeichart,jdbcType=VARCHAR},
+      SERV_PROVIDER_CSPHONE = #{servProviderCsphone,jdbcType=VARCHAR},
+      SERV_PROVIDER_IMG = #{servProviderImg,jdbcType=LONGVARBINARY},
+      SERV_PROVIDER_BUSINESSLICENSE = #{servProviderBusinesslicense,jdbcType=LONGVARBINARY}
+    where SERV_PROVIDER_ID = #{servProviderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.datangedu.cn.model.serviceprovider.Serviceprovider">
+    update serviceprovider
+    set SERV_PROVIDER_NAME = #{servProviderName,jdbcType=VARCHAR},
+      SERV_PROVIDER_REGION = #{servProviderRegion,jdbcType=VARCHAR},
+      SERV_PROVIDER_PHONE = #{servProviderPhone,jdbcType=VARCHAR},
+      SERV_PROVIDER_PASSWORD = #{servProviderPassword,jdbcType=VARCHAR},
+      SERV_PROVIDER_STATE = #{servProviderState,jdbcType=INTEGER},
+      SERV_PROVIDER_INTRODUCTION = #{servProviderIntroduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_EMAIL = #{servProviderEmail,jdbcType=VARCHAR},
+      SERV_PROVIDER_STARTTIME = #{servProviderStarttime,jdbcType=TIMESTAMP},
+      SERV_COMPANY_INTRDUCTION = #{servCompanyIntrduction,jdbcType=VARCHAR},
+      SERV_PROVIDER_WORKTIME = #{servProviderWorktime,jdbcType=VARCHAR},
+      SERV_PROVIDER_QQ = #{servProviderQq,jdbcType=VARCHAR},
+      SERV_PROVIDER_WEICHART = #{servProviderWeichart,jdbcType=VARCHAR},
+      SERV_PROVIDER_CSPHONE = #{servProviderCsphone,jdbcType=VARCHAR}
+    where SERV_PROVIDER_ID = #{servProviderId,jdbcType=VARCHAR}
+  </update>
+  <update id="savePvImg" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    update serviceprovider set SERV_PROVIDER_IMG = #{servProviderImg} where SERV_PROVIDER_ID = #{servProviderId}
+</update>
+<update id="saveStImg" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
+    update serviceprovider set SERV_PROVIDER_BUSINESSLICENSE = #{servProviderBusinesslicense} where SERV_PROVIDER_ID = #{servProviderId}
+</update>
+</mapper>
