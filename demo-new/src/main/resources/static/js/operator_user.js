@@ -27,7 +27,6 @@ $(function()
 		{
 	
 	getUserInfo();
-	console.log("xsxsxsx");
 		}
 		
 
@@ -35,7 +34,7 @@ $(function()
 function getUserInfo(){
   	  //ajax
 	var name = $(".input") .val();
-	console.log(name);
+	console.log("name:",name);
   	  $.ajax({
   		  //请求类型
   		  type:"get",
@@ -51,7 +50,7 @@ function getUserInfo(){
   		  success:function(data){
   			  console.log("成功后返回的数据==",data);
   			  var userInfo = data.userInfo;
-  			console.log(userInfo);
+  			console.log("userInfo:",userInfo);
   			  //清空之前查看的数据
   			  $("tbody").html("")
   			  

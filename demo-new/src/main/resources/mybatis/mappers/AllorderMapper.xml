@@ -276,8 +276,8 @@
   <select id="selectBylike"  parameterType="com.datangedu.cn.model.order.Allorder"  resultMap="BaseResultMap">
     SELECT * from allorder WHERE ORDE_ID LIKE '%${likeId}%'
 
-    <if test="pageSize >=0">
-      limit ${pageSize},${pageNum}
+    <if test="Nowpage >=0">
+      limit ${Nowpage},${Pagesize}
     </if>
   </select>
 </mapper>

@@ -37,7 +37,6 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 	@Override
 	public List<Administrator> getUserInfoByld(String iadmiNamed) {
-		// TODO Auto-generated method stub
 		
 		System.out.println("查询用户姓名== "+ iadmiNamed);
 		
