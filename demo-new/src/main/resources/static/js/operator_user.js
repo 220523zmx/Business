@@ -107,7 +107,21 @@ function delUser(admiId){
 		    // jQuery自运行函数，页面加载就调用的函数
 	    })
 
-	    
+	    $(function(){
+	var opename = sessionStorage.getItem("opename");
+	var ope ="";
+	$(".opename").html();
+	ope+=`${opename}`;
+	$(".opename").append(ope);
+} )
+$(function(){
+var id = sessionStorage.getItem("opeid");
+$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+})
+function defaultImg(img){
+	img.src="/images/default_user.png";
+}
+
 	   
 
 	    

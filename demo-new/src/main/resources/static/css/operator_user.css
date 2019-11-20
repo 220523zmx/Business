@@ -183,3 +183,8 @@ table td:nth-child(8) {
     margin: 20px 0 0 30px;
     display: none;
 }
+img{
+	width: 30px;
+	height: 30px;
+	
+}

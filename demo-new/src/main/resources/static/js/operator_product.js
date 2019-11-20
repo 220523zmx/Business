@@ -5,3 +5,17 @@ $(".user-arrow-down").on("click",function(){
        $(".dropdown").hide();
  }
 })  
+$(function(){
+	var opename = sessionStorage.getItem("opename");
+	var ope ="";
+	$(".opename").html();
+	ope+=`${opename}`;
+	$(".opename").append(ope);
+} )
+$(function(){
+var id = sessionStorage.getItem("opeid");
+$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+})
+function defaultImg(img){
+	img.src="/images/default_user.png";
+}

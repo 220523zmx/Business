@@ -72,6 +72,7 @@ public class ControllerOperatorLogin {
 							map.put("status",1);
 							map.put("phone", operatorLogin.findphone(request));
 							map.put("id", operatorLogin.findid(request));
+							map.put("name", operatorLogin.findadmname(request));
 						} else {
 							map.put("state", "服务忙，请过一段时间在登录");
 						}
