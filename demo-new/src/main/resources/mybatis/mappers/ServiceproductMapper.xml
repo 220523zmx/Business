@@ -430,4 +430,9 @@
 		select * from serviceproduct where SERV_PRODUCTNAME like '%${namelike}%' and SERV_PROVIDERID = '${pvid}';
 
 	</select>
+	<select id="findbylikename" parameterType="java.lang.String"
+		resultMap="ResultMapWithBLOBs">
+		select * from serviceproduct where SERV_PRODUCTNAME like '%${likename}%' order by SERV_PRICE ${state}
+
+	</select>
 </mapper>

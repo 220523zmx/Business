@@ -85,7 +85,7 @@
             </div>
             <div class="main-content">
                 <div class="search">
-                    <input placeholder="服务名称" /><button><i class="fa fa-search fa-fw"></i></button>
+                    <input class= "likename" placeholder="服务名称" /><button><i class="fa fa-search fa-fw"></i></button>
                 </div>
                 <div class="product-action">
                     <span class="up-line"><i class="fa fa-arrow-up fa-fw"></i>上线</span>
@@ -95,16 +95,16 @@
             <table border="0" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" class="checkbox"></th>
+                        <th><input name = "chehead" type="checkbox" class="checkbox checkall"></th>
                         <th>产品名称</th>
                         <th>说明</th>
-                        <th>市场价格</th>
-                        <th>排序<i class="fa fa-long-arrow-up fa-fw"></i></th>
+                        <th class = "orderby" style="cursor: pointer;">价格<i id = "upto" class="fa fa-long-arrow-up fa-fw"></i></th>
+                        <th>热度</th>
                         <th>状态</th>
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class = "productshow">
                     <tr>
                         <td><input type="checkbox" class="checkbox"></td>
                         <td>电视剧作品登记</td>
