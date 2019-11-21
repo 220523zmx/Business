@@ -36,17 +36,29 @@ public class ControllerCustomerPay {
 		System.out.println(a);
 		if(a!=0)
 		{
+			System.out.println("a:"+a);
 			int b= customerPay.updatestate(request);
 			if(b!=0)
 			{
+				System.out.println("b:"+b);
+				int c = customerPay.updatenum(request);
+				if(c==0)
+				{
+					System.out.println("c:"+c);
+					map.put("code", 0);
+					map.put("status", "支付失败，请重试");
+				}else {
 				map.put("status", "支付成功");
+				}
 			}
 			else
 			{
+				map.put("code", 0);
 				map.put("status","支付失败，请重试");
 			}
 		}else
 		{
+			map.put("code", 0);
 			map.put("status","支付失败，请重试");
 		}
 		return map;
