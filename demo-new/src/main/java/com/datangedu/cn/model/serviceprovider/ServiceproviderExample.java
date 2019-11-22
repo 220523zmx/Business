@@ -4,12 +4,43 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+@Service
 public class ServiceproviderExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
+    
+    protected int pagesize;
+    public int getPagesize() {
+		return pagesize;
+	}
+
+	public void setPagesize(int pagesize) {
+		this.pagesize = (pagesize-1)*pagesnum;
+	}
+
+	public int getPagesnum() {
+		return pagesnum;
+	}
+
+	public void setPagesnum(int pagesnum) {
+		this.pagesnum = pagesnum;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	protected int pagesnum;
+    protected String name;
+    
 
     public ServiceproviderExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -62,6 +93,9 @@ public class ServiceproviderExample {
         oredCriteria.clear();
         orderByClause = null;
         distinct = false;
+        pagesize=1;
+        pagesnum=2;
+        name=null;
     }
 
     protected abstract static class GeneratedCriteria {

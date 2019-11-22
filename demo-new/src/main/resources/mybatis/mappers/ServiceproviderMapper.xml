@@ -104,6 +104,47 @@
       order by ${orderByClause}
     </if>
   </select>
+  
+  
+  
+  
+  <select id="selectByExampleO" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="BaseResultMap">
+  
+  SELECT *FROM serviceprovider 
+WHERE SERV_PROVIDER_NAME LIKE "%${name}%" 
+LIMIT ${pagesize},${pagesnum};
+  
+  </select>
+  
+   <select id="selectByExampleOall" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="BaseResultMap">
+  
+ SELECT * FROM serviceprovider 
+WHERE SERV_PROVIDER_NAME LIKE "%${name}%" ;
+
+  
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <select id="selectByExample" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

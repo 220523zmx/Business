@@ -280,4 +280,62 @@
       limit ${pageSize},${pageNum}
     </if>
   </select>
+  
+  
+    <select id="selectByExampleA"  parameterType="com.datangedu.cn.model.order.Allorder"  resultMap="BaseResultMap">
+    SELECT * FROM allorder  
+
+
+<if test="id==1">
+WHERE ORDE_STARTTIME >'${dataa}' AND 
+'${data}' >ORDE_STARTTIME
+<if test="pageSizes >=0">
+      limit ${pageSizes},${pageNums}
+    </if>
+ </if>
+ 
+   <if test="id==0">
+WHERE ORDE_STARTTIME >'${dataa}' AND 
+'${data}' >ORDE_STARTTIME
+<if test="pageSizes >=0">
+      limit ${pageSizes},${pageNums}
+    </if>
+ </if>
+ 
+   <if test="id==2">
+ 
+
+<if test="pageSizes >=0">
+      limit ${pageSizes},${pageNums}
+    </if>
+ </if>
+   
+  </select>
+  
+   <select id="selectByExampleNum"  parameterType="com.datangedu.cn.model.order.Allorder"  resultMap="BaseResultMap">
+    
+  
+    <if test="id==3">
+     SELECT * FROM allorder
+    </if>
+    
+     <if test="id==1">
+SELECT * FROM allorder WHERE 
+ORDE_STARTTIME >'${dataa}' AND 
+'${data}' >ORDE_STARTTIME
+    </if>
+    
+    
+    
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </mapper>

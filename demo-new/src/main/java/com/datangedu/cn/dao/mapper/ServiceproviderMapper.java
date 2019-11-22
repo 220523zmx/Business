@@ -25,6 +25,14 @@ public interface ServiceproviderMapper {
 	List<ServiceproviderWithBLOBs> selectByExampleWithBLOBs(ServiceproviderExample example);
 
 	List<Serviceprovider> selectByExample(ServiceproviderExample example);
+	
+	List<Serviceprovider> selectByExampleO(ServiceproviderExample example);
+	List<Serviceprovider> selectByExampleOall(ServiceproviderExample example);
+	
+	
+	
+	
+	
 
 	ServiceproviderWithBLOBs selectByPrimaryKey(String servProviderId);
 

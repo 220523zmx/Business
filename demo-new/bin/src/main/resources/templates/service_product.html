@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/service_product.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/element-ui_2.12.0.css">
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo_info">
+            <img src="/images/logo.png" alt="logo">
+            <span class="platform_name">信达</span>
+        </div>
+        <ul class="user_info">
+            <li><a href="/toPage?url=service_product.html"><i class="fa fa-cog fa-fw"></i>服务管理</a></li>
+            <li><i class="fa fa-shopping-cart fa-fw"></i>新订单(0)</li>
+            <li><i class="fa fa-bell-o fa-fw"></i>通知(0)</li>
+            <li>
+                <img class = "imgshow" src = "/images/default_user.png" onerror="defaultImg(this)"/>
+                <span class = "pvname"></span>
+                <i class="fa fa-chevron-down fa-fw user-arrow-down"></i>
+                <ul class="dropdown">
+                    <li>更改信息</li>
+                    <li>退出登录</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <ul class="main-nav">
+            <li>
+                <a >
+                    <i class="fa fa-home fa-fw"></i>
+                    <p>主页</p>
+                </a>
+            </li>
+            <li>
+                <a href="/toPage?url=service_orderform.html">
+                    <i class="fa fa-shopping-cart fa-fw"></i>
+                    <p>订单</p>
+                </a>
+            </li>
+            <li>
+                <a href="/toPage?url=service_expenses.html">
+                    <i class="fa fa-cny fa-fw"></i>
+                    <p>费用</p>
+                </a>
+            </li>
+            <li>
+                <a href="/toPage?url=service_store.html">
+                    <i class="fa fa-institution fa-fw"></i>
+                    <p>店铺</p>
+                </a>
+            </li>
+            <li>
+                <a href="/toPage?url=service_setting.html">
+                    <i class="fa fa-cog fa-fw"></i>
+                    <p>设置</p>
+                </a>
+            </li>
+        </ul>
+        <div class="main-details">
+            <div class="main-top">
+                <ul>
+                    <li>
+                        <i class="fa fa-home fa-fw"></i>
+                    </li>
+                    <li>服务管理</li>
+                </ul>
+            </div>
+            <ul class="main-tab">
+                <li class="border-red business-order">产品列表</li>
+            </ul>
+            <div class="main-content">
+                <div class="search">
+                    <input class = "likename" placeholder="服务名称" /><button><i class="fa fa-search fa-fw"></i></button>
+                </div>
+                <div class="product-action">
+                    <span class="add-product-action"><i class="fa fa-plus fa-fw"></i>添加服务产品</span>
+                </div>
+            </div>
+            <table border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>服务名称</th>
+                        <th>服务内容</th>
+                        <th>价格</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody class = "productshow">
+                
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="masking">
+        <div class="scroller">
+            <h3>添加服务产品</h3>
+            <form  action="/service/saveProductImg" method="post"
+						enctype="multipart/form-data">
+					<p>
+                    <span>图片简介</span>
+                    <label for="file" class="btn btn-primary">选择照片</label>
+						<input id="file" name="file" type="file"
+							style="float: left; display: none" />
+						<input class="serid" name = "serid" type="text"
+							style="display: none" />
+					</p>
+
+                <p>
+                    <span>服务名称</span>
+                    <input class = "pcname" name= "pcname" placeholder="请输入服务名称" />
+                </p>
+                <p>
+                    <span class="ver-top">服务说明</span>
+                    <textarea class = "pcintp" name = "pcintp" cols="45" rows="7"></textarea>
+                </p>
+                <p>
+                    <span>服务价格</span>
+                    <input class = "pcprice" name = "pcprice"  type="number" placeholder="请输入服务价格">
+                </p>
+                <p style="text-align: center;">
+                <button class = "intsave"type="submit">提交</button>
+            	<button type="reset" class="cancel">取消</button>
+            </p>
+            </form>
+            
+            
+        </div>
+    </div>
+    <script src="/js/service_product.js"></script>
+</body>
+
+</html>

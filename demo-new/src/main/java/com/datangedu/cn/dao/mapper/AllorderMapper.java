@@ -20,6 +20,9 @@ public interface AllorderMapper {
 	int insertSelective(Allorder record);
 
 	List<Allorder> selectByExample(AllorderExample example);
+	
+	List<Allorder> selectByExampleA(AllorderExample example);
+	List<Allorder> selectByExampleNum(AllorderExample example);
 
 	int updateByExampleSelective(@Param("record") Allorder record, @Param("example") AllorderExample example);
 
