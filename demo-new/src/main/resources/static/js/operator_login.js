@@ -29,6 +29,7 @@ $(".login-btn").on("click", function() {
 				console.log(data.id, data.phone);
 				sessionStorage.setItem("opephone", data.phone);
 				sessionStorage.setItem("opeid", data.id);
+				sessionStorage.setItem("opename", data.name);
 				location.href="/toPage?url=operator_product.html"
 
 			}

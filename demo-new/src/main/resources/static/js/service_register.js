@@ -44,6 +44,10 @@ $(function() {
 	// 更改省份后的操作
 	$("select[name='province']").change(function() {
 		$("#city").html("");
+		$("#area").html("");
+		var txt = "";
+		txt += `<option value = "-1">-- 请选择县(区) --</option>`;
+		$("#area").append(txt);
 		var provCode = $("select[name='province']").val();
 		console.log(provCode);
 		getCity(provCode);

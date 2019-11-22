@@ -25,8 +25,8 @@
                 <li><a href="/toPage?url=operator_product.html"><i class="fa fa-cog fa-fw"></i>服务管理</a></li>
             <li><i class="fa fa-cube fa-fw"></i>业务管理</li>
             <li>
-                <img src="./images/default_user.png">
-                <span>用户名字</span>
+                <img class = "imgshow" src = "/images/default_user.png" onerror="defaultImg(this)"/>
+                <span class = "opename"></span>
                 <i class="fa fa-chevron-down fa-fw user-arrow-down"></i>
                 <ul class="dropdown">
                     <li>更改信息</li>
@@ -85,7 +85,7 @@
             </div>
             <div class="main-content">
                 <div class="search">
-                    <input placeholder="服务名称" /><button><i class="fa fa-search fa-fw"></i></button>
+                    <input class= "likename" placeholder="服务名称" /><button><i class="fa fa-search fa-fw"></i></button>
                 </div>
                 <div class="product-action">
                     <span class="up-line"><i class="fa fa-arrow-up fa-fw"></i>上线</span>
@@ -95,16 +95,16 @@
             <table border="0" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" class="checkbox"></th>
+                        <th><input name = "chehead" type="checkbox" class="checkbox checkall"></th>
                         <th>产品名称</th>
                         <th>说明</th>
-                        <th>市场价格</th>
-                        <th>排序<i class="fa fa-long-arrow-up fa-fw"></i></th>
+                        <th class = "orderby" style="cursor: pointer;">价格<i id = "upto" class="fa fa-long-arrow-up fa-fw"></i></th>
+                        <th>热度</th>
                         <th>状态</th>
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class = "productshow">
                     <tr>
                         <td><input type="checkbox" class="checkbox"></td>
                         <td>电视剧作品登记</td>

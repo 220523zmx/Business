@@ -12,4 +12,6 @@ public interface OperatorLoginServlet {
 
 	String findid(HttpServletRequest request);
 
+	public String findadmname(HttpServletRequest request);
+
 }

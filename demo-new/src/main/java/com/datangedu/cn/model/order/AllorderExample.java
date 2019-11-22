@@ -104,7 +104,11 @@ public class AllorderExample {
 	}
 
 	public void setNowpage(Integer nowpage) {
+<<<<<<< HEAD
 		Nowpage = (nowpage - 1) * Pagesize;
+=======
+		this.Nowpage = (nowpage-1)*Pagesize;
+>>>>>>> fff7cd747fcd5e9bf063651f92ef6f96efed96d0
 	}
 
 	public Integer getPagesize() {
@@ -112,7 +116,7 @@ public class AllorderExample {
 	}
 
 	public void setPagesize(Integer pagesize) {
-		Pagesize = pagesize;
+		this.Pagesize = pagesize;
 	}
 
 	public AllorderExample() {

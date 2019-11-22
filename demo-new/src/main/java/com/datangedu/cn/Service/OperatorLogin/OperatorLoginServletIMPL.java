@@ -79,4 +79,9 @@ public class OperatorLoginServletIMPL implements OperatorLoginServlet {
 			return false;
 		}
 	}
+	public String findadmname(HttpServletRequest request)
+	{
+		return administratorMapper.selectByPrimaryKey(findid(request)).getAdmiName();
+		
+	}
 }

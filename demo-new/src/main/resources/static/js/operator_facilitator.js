@@ -185,6 +185,24 @@ function FuzzySearcha() {
 		error : function(data) {
 			console.log("失败", data);
 		}
+<<<<<<< HEAD
 	})
 
+=======
+	$(".page").append(txt);
+	sessionStorage.setItem("page",p); }
+$(function(){
+	var opename = sessionStorage.getItem("opename");
+	var ope ="";
+	$(".opename").html();
+	ope+=`${opename}`;
+	$(".opename").append(ope);
+} )
+$(function(){
+var id = sessionStorage.getItem("opeid");
+$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+})
+function defaultImg(img){
+	img.src="/images/default_user.png";
+>>>>>>> fff7cd747fcd5e9bf063651f92ef6f96efed96d0
 }

@@ -4,14 +4,14 @@ $(".payment li").eq(1).on("click", function() {
 })*/
 
 $(function() {
-	var id = sessionStorage.getItem("cusid");
+	var cusid = sessionStorage.getItem("cusid");
 	var orid = sessionStorage.getItem("topay");
 	$.ajax({
 			type : "post",
 			url : "/customer/paylist",
 			dataType : "json",
 			data : {
-				id : id,
+				cusid : cusid,
 				orid:orid,
 			},
 			success : function(data) {
@@ -65,6 +65,7 @@ function pay()
 {
 	var payway= $("input[type='radio'][name='pay']:checked").val();
 	var orid = sessionStorage.getItem("topay");
+	var cusid = sessionStorage.getItem("cusid");
 	if(payway!=null)
 	{	
 		$.ajax({
@@ -74,12 +75,13 @@ function pay()
 		data : {
 			payway : payway,
 			orid:orid,
+			cusid:cusid,
 		},
 		success : function(data) {
 			console.log("成功", data);
 			
 			sessionStorage.removeItem("topay");
-			location.href = "//toPage?url=e-commerce_order.html";
+			location.href = "/toPage?url=e-commerce_order.html";
 		},
 		error : function(data) {
 			console.log("失败", data);
