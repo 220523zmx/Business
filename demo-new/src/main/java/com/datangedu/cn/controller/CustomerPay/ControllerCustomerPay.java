@@ -33,22 +33,29 @@ public class ControllerCustomerPay {
 	{
 		Map<String, Object> map = new HashMap<String, Object>();
 		int a = customerPay.updatepayway(request);
-		System.out.println(a);
+		System.out.println("a:"+a);
 		if(a!=0)
 		{
-			System.out.println("a:"+a);
 			int b= customerPay.updatestate(request);
+			System.out.println("b:"+b);
 			if(b!=0)
 			{
-				System.out.println("b:"+b);
 				int c = customerPay.updatenum(request);
-				if(c==0)
+				System.out.println("c:"+c);
+				if(c!=0)
 				{
+					int d = customerPay.updatecusnum(request);
+					System.out.println("d:"+d);
+					if(d!=0) {
+						map.put("status", "支付成功");
+					}else {
+						map.put("code", 0);
+						map.put("status", "支付失败，请重试");
+					}
+				}else {
 					System.out.println("c:"+c);
 					map.put("code", 0);
 					map.put("status", "支付失败，请重试");
-				}else {
-				map.put("status", "支付成功");
 				}
 			}
 			else
@@ -63,5 +70,4 @@ public class ControllerCustomerPay {
 		}
 		return map;
 	}
-
 }

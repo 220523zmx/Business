@@ -12,4 +12,5 @@ public interface CustomerPayServlet {
 	public int updatestate(HttpServletRequest request);
 	public int updatenum(HttpServletRequest request) ;
 	public String findproductid(String pcname);
+	public int updatecusnum(HttpServletRequest request);
 }
