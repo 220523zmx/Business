@@ -30,7 +30,6 @@ public class ControllerCustomerRegister {
 	public Map<String, Object> register(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		Map<String, Object> map = new HashMap<String, Object>();
-		
 		HttpSession session = request.getSession();
 		session.getAttribute("vimg");
 		String vimg = (String) session.getAttribute("code");
