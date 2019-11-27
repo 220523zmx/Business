@@ -22,6 +22,7 @@ import com.datangedu.cn.model.cart.CartExample;
 import com.datangedu.cn.model.customers.CustomersExample;
 import com.datangedu.cn.model.order.Allorder;
 import com.datangedu.cn.model.order.AllorderExample;
+import com.datangedu.cn.model.serviceproduct.Serviceproduct;
 import com.datangedu.cn.model.serviceproduct.ServiceproductExample;
 import com.datangedu.cn.model.serviceprovider.ServiceproviderExample;
 
@@ -185,6 +186,9 @@ public class CustomerCarServletIMPL implements CustomerCarServlet {
 		CartExample.Criteria Criteria = cartExample.createCriteria();
 		Criteria.andCartCustomeridEqualTo(request.getParameter("id"));
 		return cartMapper.deleteByExample(cartExample);
+	}
+	public Serviceproduct findlinebypramarykey(String str) {
+		return serviceproduct.selectByPrimaryKey(str);
 	}
 
 }

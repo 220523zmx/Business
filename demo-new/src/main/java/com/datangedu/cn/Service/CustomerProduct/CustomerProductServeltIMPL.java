@@ -42,6 +42,7 @@ public class CustomerProductServeltIMPL implements CustomerProductServelt {
 	public List<Serviceproduct> findProduct(HttpServletRequest request) {
 		ServiceproductExample serviceproductExample = new ServiceproductExample();
 		ServiceproductExample.Criteria criteria = serviceproductExample.createCriteria();
+		serviceproductExample.setOrderByClause("SERV_RECOMMENDED DESC");
 		return serviceproductMapper.selectByExample(serviceproductExample);
 	}
 

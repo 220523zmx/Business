@@ -435,4 +435,25 @@
 		select * from serviceproduct where SERV_PRODUCTNAME like '%${likename}%' order by SERV_PRICE ${state}
 
 	</select>
+    <select id="countBylikenameandorder"  parameterType="java.lang.String" resultType="java.lang.Long">
+      	select count(*) from serviceproduct where  SERV_PRODUCTNAME like '%${likename}%'
+ 	</select>
+ 	<select id="selectbynamenporderbytime" parameterType="com.datangedu.cn.model.serviceproduct.Serviceproduct" resultMap="ResultMapWithBLOBs">
+		select * from serviceproduct where SERV_PRODUCTNAME like '%${likename}%' order by SERV_STARTTIME ${state}
+		<if test="Nowpage >=0">
+      		limit ${Nowpage},${Pagesize}
+    	</if>
+	</select>
+	<select id="selectbynamenporderbynum" parameterType="com.datangedu.cn.model.serviceproduct.Serviceproduct" resultMap="ResultMapWithBLOBs">
+		select * from serviceproduct where SERV_PRODUCTNAME like '%${likename}%' order by SERV_BUMBER ${state}
+		<if test="Nowpage >=0">
+      		limit ${Nowpage},${Pagesize}
+    	</if>
+	</select>
+	<select id="selectbynamenporderbyprice" parameterType="com.datangedu.cn.model.serviceproduct.Serviceproduct" resultMap="ResultMapWithBLOBs">
+		select * from serviceproduct where SERV_PRODUCTNAME like '%${likename}%' order by SERV_PRICE ${state}
+		<if test="Nowpage >=0">
+      		limit ${Nowpage},${Pagesize}
+    	</if>
+	</select>
 </mapper>

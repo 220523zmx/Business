@@ -46,6 +46,14 @@ public interface ServiceproductMapper {
 
 	List<Serviceproduct> findproductnamelike(String namelike, String pvid);
 
-	List<Serviceproduct> findbylikename(String likename,String state);
+	List<Serviceproduct> findbylikename(String likename, String state);
+
+	long countBylikenameandorder(String likename);
+
+	List<Serviceproduct> selectbynamenporderbytime(Serviceproduct record);
+
+	List<Serviceproduct> selectbynamenporderbynum(Serviceproduct record);
+
+	List<Serviceproduct> selectbynamenporderbyprice(Serviceproduct record);
 
 }

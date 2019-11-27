@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.datangedu.cn.model.cart.Cart;
 import com.datangedu.cn.model.cart.CartExample;
+import com.datangedu.cn.model.serviceproduct.Serviceproduct;
 import com.datangedu.cn.model.serviceproduct.ServiceproductExample;
 import com.datangedu.cn.model.serviceprovider.ServiceproviderExample;
 
@@ -36,9 +37,12 @@ public interface CustomerCarServlet {
 
 	public int deleteCartline(HttpServletRequest request);
 
-	public int insertOrderFromCart(Cart cart, String str, Date datetime) ;
+	public int insertOrderFromCart(Cart cart, String str, Date datetime);
+
 	public String getCuNameDistinct(String customerid);// provider name list
 
 	public int deCartByCuid(HttpServletRequest request);
+
+	public Serviceproduct findlinebypramarykey(String str) ;
 
 }

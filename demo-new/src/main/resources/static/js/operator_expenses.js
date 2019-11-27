@@ -52,7 +52,6 @@ $(".search li").eq(2).on("click", function () {
 $(".search li").eq(3).on("click", function () {
     $(".search li").removeClass("font-red");
     $(this).addClass("font-red");
-<<<<<<< HEAD
     $(".page").empty();
     time=2;
     FuzzySearchA();
@@ -250,10 +249,6 @@ function FuzzySearchAa() {
 
 
 
-
-
-
-=======
 })
 $(function(){
 	var opename = sessionStorage.getItem("opename");
@@ -269,4 +264,4 @@ $(".imgshow").attr("src","/operator/headimgshow?id="+id);
 function defaultImg(img){
 	img.src="/images/default_user.png";
 }
->>>>>>> fff7cd747fcd5e9bf063651f92ef6f96efed96d0
+

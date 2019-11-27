@@ -213,7 +213,7 @@ function cartline(){
 		txt+=`
 			<ul class="merchandise" value = "${pc_line[0].cartProductid}">
 				<li> 
-					<img src="" alt="图片"> 
+					<img  class = "cartimg" src="/customer/cartproimgshow?id=${pc_line[0].cartProductid}" alt="图片" />
 				</li> 
 				<li class = "pcid" >${pv_pc[j]}</li> 
 				<li>¥${pc_line[0].cartPrice}</li>

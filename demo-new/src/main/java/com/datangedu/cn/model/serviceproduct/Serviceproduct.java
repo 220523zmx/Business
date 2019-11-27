@@ -3,123 +3,163 @@ package com.datangedu.cn.model.serviceproduct;
 import java.util.Date;
 
 public class Serviceproduct {
-    private String servProductid;
+	private String servProductid;
 
-    private String servProviderid;
+	private String servProviderid;
 
-    private String servProductname;
+	private String servProductname;
 
-    private String servInstructions;
+	private String servInstructions;
 
-    private Integer servPrice;
+	private Integer servPrice;
 
-    private Date servStarttime;
+	private Date servStarttime;
 
-    private Integer servState;
+	private Integer servState;
 
-    private Integer servBumber;
+	private Integer servBumber;
 
-    private String servProvidername;
+	private String servProvidername;
 
-    private Integer servRecommended;
+	private Integer servRecommended;
 
-    private Integer servNecessary;
+	private Integer servNecessary;
 
-    private byte[] servProductimg;
+	private byte[] servProductimg;
+	
+	private String likename;
+	
+	private String state;
+	
+	private Integer Nowpage;
+	
+	private Integer Pagesize = 4;
 
-    public String getServProductid() {
-        return servProductid;
-    }
+	public String getLikename() {
+		return likename;
+	}
 
-    public void setServProductid(String servProductid) {
-        this.servProductid = servProductid == null ? null : servProductid.trim();
-    }
+	public void setLikename(String likename) {
+		this.likename = likename;
+	}
 
-    public String getServProviderid() {
-        return servProviderid;
-    }
+	public String getState() {
+		return state;
+	}
 
-    public void setServProviderid(String servProviderid) {
-        this.servProviderid = servProviderid == null ? null : servProviderid.trim();
-    }
+	public void setState(String state) {
+		this.state = state;
+	}
 
-    public String getServProductname() {
-        return servProductname;
-    }
+	public Integer getNowpage() {
+		return Nowpage;
+	}
 
-    public void setServProductname(String servProductname) {
-        this.servProductname = servProductname == null ? null : servProductname.trim();
-    }
+	public void setNowpage(Integer nowpage) {
+		Nowpage = (nowpage-1)*Pagesize;
+	}
 
-    public String getServInstructions() {
-        return servInstructions;
-    }
+	public Integer getPagesize() {
+		return Pagesize;
+	}
 
-    public void setServInstructions(String servInstructions) {
-        this.servInstructions = servInstructions == null ? null : servInstructions.trim();
-    }
+	public void setPagesize(Integer pagesize) {
+		Pagesize = pagesize;
+	}
 
-    public Integer getServPrice() {
-        return servPrice;
-    }
+	public String getServProductid() {
+		return servProductid;
+	}
 
-    public void setServPrice(Integer servPrice) {
-        this.servPrice = servPrice;
-    }
+	public void setServProductid(String servProductid) {
+		this.servProductid = servProductid == null ? null : servProductid.trim();
+	}
 
-    public Date getServStarttime() {
-        return servStarttime;
-    }
+	public String getServProviderid() {
+		return servProviderid;
+	}
 
-    public void setServStarttime(Date servStarttime) {
-        this.servStarttime = servStarttime;
-    }
+	public void setServProviderid(String servProviderid) {
+		this.servProviderid = servProviderid == null ? null : servProviderid.trim();
+	}
 
-    public Integer getServState() {
-        return servState;
-    }
+	public String getServProductname() {
+		return servProductname;
+	}
 
-    public void setServState(Integer servState) {
-        this.servState = servState;
-    }
+	public void setServProductname(String servProductname) {
+		this.servProductname = servProductname == null ? null : servProductname.trim();
+	}
 
-    public Integer getServBumber() {
-        return servBumber;
-    }
+	public String getServInstructions() {
+		return servInstructions;
+	}
 
-    public void setServBumber(Integer servBumber) {
-        this.servBumber = servBumber;
-    }
+	public void setServInstructions(String servInstructions) {
+		this.servInstructions = servInstructions == null ? null : servInstructions.trim();
+	}
 
-    public String getServProvidername() {
-        return servProvidername;
-    }
+	public Integer getServPrice() {
+		return servPrice;
+	}
 
-    public void setServProvidername(String servProvidername) {
-        this.servProvidername = servProvidername == null ? null : servProvidername.trim();
-    }
+	public void setServPrice(Integer servPrice) {
+		this.servPrice = servPrice;
+	}
 
-    public Integer getServRecommended() {
-        return servRecommended;
-    }
+	public Date getServStarttime() {
+		return servStarttime;
+	}
 
-    public void setServRecommended(Integer servRecommended) {
-        this.servRecommended = servRecommended;
-    }
+	public void setServStarttime(Date servStarttime) {
+		this.servStarttime = servStarttime;
+	}
 
-    public Integer getServNecessary() {
-        return servNecessary;
-    }
+	public Integer getServState() {
+		return servState;
+	}
 
-    public void setServNecessary(Integer servNecessary) {
-        this.servNecessary = servNecessary;
-    }
+	public void setServState(Integer servState) {
+		this.servState = servState;
+	}
 
-    public byte[] getServProductimg() {
-        return servProductimg;
-    }
+	public Integer getServBumber() {
+		return servBumber;
+	}
 
-    public void setServProductimg(byte[] servProductimg) {
-        this.servProductimg = servProductimg;
-    }
+	public void setServBumber(Integer servBumber) {
+		this.servBumber = servBumber;
+	}
+
+	public String getServProvidername() {
+		return servProvidername;
+	}
+
+	public void setServProvidername(String servProvidername) {
+		this.servProvidername = servProvidername == null ? null : servProvidername.trim();
+	}
+
+	public Integer getServRecommended() {
+		return servRecommended;
+	}
+
+	public void setServRecommended(Integer servRecommended) {
+		this.servRecommended = servRecommended;
+	}
+
+	public Integer getServNecessary() {
+		return servNecessary;
+	}
+
+	public void setServNecessary(Integer servNecessary) {
+		this.servNecessary = servNecessary;
+	}
+
+	public byte[] getServProductimg() {
+		return servProductimg;
+	}
+
+	public void setServProductimg(byte[] servProductimg) {
+		this.servProductimg = servProductimg;
+	}
 }
