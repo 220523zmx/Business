@@ -206,3 +206,13 @@ $(".search-btn").on("click",function(){
 })
 
 
+$(".user-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})
+
+$(".user-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})
+

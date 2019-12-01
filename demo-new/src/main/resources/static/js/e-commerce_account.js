@@ -121,3 +121,8 @@ $(function(){
 	
 $(".imgshow").attr("src","/customer/imgshow?id="+id);
 })
+
+$(".user-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})

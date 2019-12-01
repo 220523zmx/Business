@@ -275,3 +275,7 @@ function toupdate()
 {
 	$(".masking").show();
 }
+$(".serv-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})

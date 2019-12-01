@@ -33,3 +33,7 @@ $(".order2").on("click", function(){
 function defaultImg(img){
 	img.src="/images/default_user.png";
 }
+$(".serv-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})

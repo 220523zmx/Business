@@ -122,6 +122,11 @@ function defaultImg(img){
 	img.src="/images/default_user.png";
 }
 
+    $(".oper-quit").on("click", function() {
+    	sessionStorage.clear();
+    	location.href="/toPage?url=index.html"
+    })
+
 	   
 
 	    

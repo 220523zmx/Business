@@ -303,3 +303,8 @@ $(function(){
 				ajaxget(likename,np);
 			})
 })
+
+$(".oper-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})

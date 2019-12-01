@@ -36,9 +36,10 @@ public class ServiceOrderServletIMPL implements ServiceOrderServlet {
 		allorder.setFinish(finish);
 		allorder.setLikename(likename);
 		allorder.setSername(sername);
+		System.out.println("11111"+likename);
 		long i = allorderMapper.countBylikenameExample(allorder);
 		System.out.println(i);
-		if (((i % allorderExample.getPagesize()) != 0) & (i / allorderExample.getPagesize() != 0)) {
+		if (((i % allorderExample.getPagesize()) != 0) | (i / allorderExample.getPagesize() != 0)) {
 			if (i % allorderExample.getPagesize() != 0) {
 				i = (i / allorderExample.getPagesize()) + 1;
 				return i;
@@ -69,6 +70,7 @@ public class ServiceOrderServletIMPL implements ServiceOrderServlet {
 		String likename = request.getParameter("likename");
 		String nowpage = request.getParameter("nowpage");
 		String finish = request.getParameter("finish");
+		System.out.println("this++"+likename+nowpage+finish);
 		
 		AllorderExample allorderExample = new AllorderExample();
 		AllorderExample.Criteria criteria = allorderExample.createCriteria();
@@ -77,7 +79,7 @@ public class ServiceOrderServletIMPL implements ServiceOrderServlet {
 		allorderExample.setNowpage(Integer.parseInt(nowpage));
 		allorderExample.setFinish(Integer.parseInt(finish));
 		allorderExample.setSername(sername);
-		allorderExample.setLikename("");
+		allorderExample.setLikename(likename);
 		
 		return allorderMapper.selectAllorderbyServiceid(allorderExample);
 

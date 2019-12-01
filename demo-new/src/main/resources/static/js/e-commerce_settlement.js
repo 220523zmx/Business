@@ -100,3 +100,8 @@ function datetime(time) {
 			+ date.getDate() + " " + date.getHours() + ":" + date.getMinutes()
 			+ ":" + date.getSeconds();
 }
+
+$(".user-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})

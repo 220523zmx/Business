@@ -31,6 +31,8 @@ $(".search li").eq(0).on("click", function () {
     $(this).addClass("font-red");
     $(".page").empty();
     time=0;
+    pagesize=1;
+    
     FuzzySearchA();
     
     
@@ -40,6 +42,7 @@ $(".search li").eq(1).on("click", function () {
     $(this).addClass("font-red");
     $(".page").empty();
     time=1;
+    pagesize=1;
     FuzzySearchA();
 })
 $(".search li").eq(2).on("click", function () {
@@ -47,6 +50,7 @@ $(".search li").eq(2).on("click", function () {
     $(this).addClass("font-red");
     $(".page").empty();
     time=3;
+    pagesize=1;
     FuzzySearchA();
 })
 $(".search li").eq(3).on("click", function () {
@@ -54,13 +58,20 @@ $(".search li").eq(3).on("click", function () {
     $(this).addClass("font-red");
     $(".page").empty();
     time=2;
+    pagesize=1;
     FuzzySearchA();
 })
 
 
 
 $(function(){
+	
+	console.log("hahahahahahahhah");
+	
 	FuzzySearchA();
+	
+	
+	
 })
 
 $(".after").on("click", function() {
@@ -93,6 +104,11 @@ $(".before").on("click", function() {
 })
 
 $(".shou").on("click", function() {
+	
+	$(".page span").removeClass("main-pagination-page");
+	$(".page span").eq(0).addClass("main-pagination-page");
+		
+	
 	if(das==0){
 	alert("没有查询到数据哈，亲!")
 	}
@@ -107,12 +123,16 @@ $(".shou").on("click", function() {
 				
 })
 $(".wei").on("click", function() {
+	console.log("kkkk",pagesize);
+	$(".page span").removeClass("main-pagination-page");
+
 	if(das==0){
 	alert("没有查询到数据哈，亲!")
 	}
 	else{
 		var name = $(".search").val();
 		pagesize = das;
+		$(".page span").eq(pagesize-1).addClass("main-pagination-page");
 		FuzzySearchAa();
 	}
 				
@@ -160,6 +180,7 @@ function FuzzySearchA() {
 		
 	}
 	$(".page").append(tx);
+	$(".page span").eq(0).addClass("main-pagination-page");
 			
 			var txt="";
 			var ss=0;
@@ -249,7 +270,6 @@ function FuzzySearchAa() {
 
 
 
-})
 $(function(){
 	var opename = sessionStorage.getItem("opename");
 	var ope ="";
@@ -264,4 +284,9 @@ $(".imgshow").attr("src","/operator/headimgshow?id="+id);
 function defaultImg(img){
 	img.src="/images/default_user.png";
 }
+
+$(".oper-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})
 

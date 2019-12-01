@@ -28,7 +28,7 @@ $(".order2").on("click", function() {
 })
 
 $(".fa").on("click", function() {
-	
+	pagesize = 1;
 	FuzzySearch();
 	
 	
@@ -83,13 +83,20 @@ $(".shou").on("click", function() {
 				
 })
 $(".wei").on("click", function() {
+	$(".page span").removeClass("main-pagination-page");
 	if(das==0){
 	alert("没有查询到数据哈，亲!")
 	}
 	else{
 		var name = $(".search").val();
 		pagesize = das;
-		FuzzySearch();
+		$(".page span").eq(pagesize-1).addClass("main-pagination-page");
+		FuzzySearcha();
+		
+		
+		
+		
+	
 	}
 				
 })
@@ -109,10 +116,19 @@ function FuzzySearch() {
 		dataType : "json",
 		success : function(data) {
             
-			$(".ser").empty();
-			$(".page").empty();
+			
 			var da=data.code;
+			console.log("data.code=",data.code,"123")
+			
 			das=Math.ceil(data.codes/2);
+			if(data.code.length == 0){
+				alert("亲，没有搜索到数据哦");
+				return;
+			}
+			else{
+			
+				$(".ser").empty();
+				$(".page").empty();
 			var tx="";
 			
 		    for(i=1;i<=das;i++){
@@ -122,6 +138,8 @@ function FuzzySearch() {
 		
 	}
 	$(".page").append(tx);
+	$(".page span").eq(0).addClass("main-pagination-page");
+	
 	console.log($(".main-pagination span"))
 			
 			var txt="";
@@ -137,7 +155,7 @@ function FuzzySearch() {
                         </td>
                     </tr>`
 			}
-				$(".ser").append(txt); 											
+				$(".ser").append(txt); 	}									
 					
 		},
 		error : function(data) {
@@ -185,7 +203,7 @@ function FuzzySearcha() {
 		error : function(data) {
 			console.log("失败", data);
 		}
-}
+})}
 $(function(){
 	var opename = sessionStorage.getItem("opename");
 	var ope ="";
@@ -201,3 +219,8 @@ function defaultImg(img){
 	img.src="/images/default_user.png";
 
 }
+
+$(".oper-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})

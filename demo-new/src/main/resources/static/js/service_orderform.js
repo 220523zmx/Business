@@ -272,3 +272,7 @@ $(".order2").on("click",function(){
 	countorder();
 	ajaxget(serid,likename,nowpage);
 })
+$(".serv-quit").on("click", function() {
+	sessionStorage.clear();
+	location.href="/toPage?url=index.html"
+})
