@@ -8,7 +8,7 @@ $(function() {
 	var orid = sessionStorage.getItem("topay");
 	$.ajax({
 			type : "post",
-			url : "/customer/paylist",
+			url : "./customer/paylist",
 			dataType : "json",
 			data : {
 				cusid : cusid,
@@ -70,7 +70,7 @@ function pay()
 	{	
 		$.ajax({
 		type : "post",
-		url : "/customer/payway",
+		url : "./customer/payway",
 		dataType : "json",
 		data : {
 			payway : payway,
@@ -81,7 +81,7 @@ function pay()
 			console.log("成功", data);
 			
 			sessionStorage.removeItem("topay");
-			location.href = "/toPage?url=e-commerce_order.html";
+			location.href = "./toPage?url=e-commerce_order.html";
 		},
 		error : function(data) {
 			console.log("失败", data);
@@ -103,5 +103,5 @@ function datetime(time) {
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

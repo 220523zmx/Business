@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.datangedu.cn.dao.mapper.ServiceproductMapper;
 import com.datangedu.cn.model.serviceproduct.Serviceproduct;
+import com.datangedu.cn.model.serviceproduct.ServiceproductExample;
 
 @Service
 public class OperatorRecommendServletIMPL implements OperatorRecommendServlet {
@@ -72,6 +73,27 @@ public class OperatorRecommendServletIMPL implements OperatorRecommendServlet {
 		}
 		return null;
 
+	}
+	public int ajaxreco(HttpServletRequest request) {
+		System.out.println("???"+request.getParameter("state"));
+		System.out.println("???"+request.getParameter("id"));
+		Serviceproduct serviceproduct = new Serviceproduct();
+		serviceproduct.setServRecommended(Integer.parseInt(request.getParameter("state")));
+		ServiceproductExample serviceproductExample = new ServiceproductExample();
+		ServiceproductExample.Criteria criteria= serviceproductExample.createCriteria();
+		criteria.andServProductidEqualTo(request.getParameter("id"));
+		return serviceproductMapper.updateByExampleSelective(serviceproduct, serviceproductExample);
+	}
+	public int ajaxnece(HttpServletRequest request) {
+		System.out.println("???"+request.getParameter("state"));
+		System.out.println("???"+request.getParameter("id"));
+		Serviceproduct serviceproduct = new Serviceproduct();
+		serviceproduct.setServNecessary(Integer.parseInt(request.getParameter("state")));
+		ServiceproductExample serviceproductExample = new ServiceproductExample();
+		ServiceproductExample.Criteria criteria= serviceproductExample.createCriteria();
+		criteria.andServProductidEqualTo(request.getParameter("id"));
+		return serviceproductMapper.updateByExampleSelective(serviceproduct, serviceproductExample);
+		
 	}
 
 }

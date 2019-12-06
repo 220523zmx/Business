@@ -32,7 +32,7 @@ function delete_pc(id)
 	var cuid = sessionStorage.getItem("cusid");
 	$.ajax({
 		type : "post",
-		url : "/customer/cart_delete",
+		url : "./customer/cart_delete",
 		dataType : "json",
 		data : {
 			pcid : pcid,
@@ -76,7 +76,7 @@ function sub(id){
 	
 	$.ajax({
 		type : "post",
-		url : "/customer/cart_sub",
+		url : "./customer/cart_sub",
 		dataType : "json",
 		data : {
 			pcid : pcid,
@@ -107,7 +107,7 @@ function add(id){
 	console.log(num);
 	$.ajax({
 		type : "post",
-		url : "/customer/cart_add",
+		url : "./customer/cart_add",
 		dataType : "json",
 		data : {
 			pcid : pcid,
@@ -139,7 +139,7 @@ function change(id)
 	
 	$.ajax({
 		type : "post",
-		url : "/customer/cart_change",
+		url : "./customer/cart_change",
 		dataType : "json",
 		data : {
 			pcid : pcid,
@@ -166,7 +166,7 @@ function submit(){
 	var id = sessionStorage.getItem("cusid");
 	$.ajax({
 		type : "post",
-		url : "/customer/carttoorder",
+		url : "./customer/carttoorder",
 		dataType : "json",
 		data : {
 			id : id,
@@ -175,7 +175,7 @@ function submit(){
 			console.log("成功", data);
 			if(data.state == 1){
 				sessionStorage.setItem("topay",data.orderid);
-				location.href="/toPage?url=e-commerce_settlement.html"}
+				location.href="./toPage?url=e-commerce_settlement.html"}
 			else {alert(data.waring);}
 		},
 		error : function(data) {
@@ -189,7 +189,7 @@ function cartline(){
 	var id = sessionStorage.getItem("cusid");
 	$.ajax({
 		type : "post",
-		url : "/customer/cart",
+		url : "./customer/cart",
 		dataType : "json",
 		data : {
 			id : id,
@@ -213,13 +213,13 @@ function cartline(){
 		txt+=`
 			<ul class="merchandise" value = "${pc_line[0].cartProductid}">
 				<li> 
-					<img  class = "cartimg" src="/customer/cartproimgshow?id=${pc_line[0].cartProductid}" alt="图片" />
+					<img  class = "cartimg" src="./customer/cartproimgshow?id=${pc_line[0].cartProductid}" alt="图片" />
 				</li> 
 				<li class = "pcid" >${pv_pc[j]}</li> 
 				<li>¥${pc_line[0].cartPrice}</li>
 				<li>
 					<span onclick="sub('${pc_line[0].cartProductid}')">-</span> 
-					<input value="${pc_line[0].cartNumber}"  onblur = "change('${pc_line[0].cartProductid}')"/> 
+					<input value="${pc_line[0].cartNumber}"  onblur = "change('${pc_line[0].cartProductid}')"./> 
 					<span onclick="add('${pc_line[0].cartProductid}')">+</span> 
 				</li>
 				<li> ¥${pc_line[0].cartNumber*pc_line[0].cartPrice} </li> 
@@ -237,7 +237,7 @@ function cartline(){
 	txt1+=`
 	<li>金额合计<span>¥${allprice}</span></li>
 	<li>
-		<a href="/toPage?url=e-commerce_product.html">继续购物</a> 
+		<a href="./toPage?url=e-commerce_product.html">继续购物</a> 
 		<button onclick = "submit()">去结算</button>
 	</li>
 		`
@@ -254,6 +254,6 @@ function cartline(){
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })
 

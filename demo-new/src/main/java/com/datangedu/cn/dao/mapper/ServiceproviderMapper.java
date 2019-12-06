@@ -27,13 +27,9 @@ public interface ServiceproviderMapper {
 	List<Serviceprovider> selectByExample(ServiceproviderExample example);
 	
 	List<Serviceprovider> selectByExampleO(ServiceproviderExample example);
+	
 	List<Serviceprovider> selectByExampleOall(ServiceproviderExample example);
 	
-	
-	
-	
-	
-
 	ServiceproviderWithBLOBs selectByPrimaryKey(String servProviderId);
 
 	int updateByExampleSelective(@Param("record") ServiceproviderWithBLOBs record,
@@ -53,4 +49,8 @@ public interface ServiceproviderMapper {
 	int savePvImg(ServiceproviderWithBLOBs record);
 
 	int saveStImg(ServiceproviderWithBLOBs record);
+	
+	long countBylikename(String likename);
+	
+	List<ServiceproviderWithBLOBs> selectbynamenp(ServiceproviderWithBLOBs record);
 }

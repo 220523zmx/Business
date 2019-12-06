@@ -7,7 +7,7 @@ $(function(){
 } )
 $(function(){
 var id = sessionStorage.getItem("serid");
-$(".imgshow").attr("src","/service/headimgshow?id="+id);
+$(".imgshow").attr("src","./service/headimgshow?id="+id);
 })
 $(".user-arrow-down").on("click",function(){
     if($(".dropdown").is(":hidden")){
@@ -38,7 +38,7 @@ $(".order3").on("click", function(){
     $(".main-top li").eq(3).text("未通过用户");
 })
 function defaultImg(img){
-	img.src="/images/default_user.png";
+	img.src="./images/default_user.png";
 }
 
 $(function(){
@@ -58,7 +58,7 @@ function countorder(){
 	var finish = sessionStorage.getItem("finish");
 	$.ajax({
 		type : "get",
-		url : "/service/countorder",
+		url : "./service/countorder",
 		dataType : "json",
 		data:{
 			serid:serid,
@@ -178,7 +178,7 @@ function  ajaxget(serid,likename,nowpage){//分页模糊ajax.get请求
 	console.log("服务商id","(",serid,")","模糊字段","(",likename,")","当前页","(",nowpage,")","搜索状态","(",finish,")");
 	$.ajax({
 		type : "get",
-		url : "/service/topage",
+		url : "./service/topage",
 		dataType : "json",
 		data:{
 			serid:serid,
@@ -274,5 +274,5 @@ $(".order2").on("click",function(){
 })
 $(".serv-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

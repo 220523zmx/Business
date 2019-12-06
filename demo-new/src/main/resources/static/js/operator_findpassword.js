@@ -16,7 +16,7 @@ $(".login-btn").on("click",function(){
 	console.log(phone, newpassword, againpassword,code);
 	$.ajax({
 		type : "post",
-		url : "/operator/find",
+		url : "./operator/find",
 		data : {
 			phone 			: phone,
 			newpassword 	: newpassword,

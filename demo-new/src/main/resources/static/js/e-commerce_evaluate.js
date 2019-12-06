@@ -44,7 +44,7 @@ $(".save").on("click", function(event){
 	console.log(eva);
 	$.ajax({
 		type : "post",
-		url : "/customer/saveevaluate",
+		url : "./customer/saveevaluate",
 		data:{
 			id:id,
 			pcid:pcid,
@@ -82,13 +82,13 @@ function hasevaluate(){
 	var id = sessionStorage.getItem("cusid");
 	$.ajax({
 		type : "post",
-		url : "/customer/hasevaluate",
+		url : "./customer/hasevaluate",
 		data:{id:id},
 		dataType : "json",
 		success : function(data) {
 			console.log("成功", data);
 			orderevalist(data);
-			// location.href = "/toPage?url=e-commerce_order.html";
+			// location.href = "./toPage?url=e-commerce_order.html";
 		},
 		error : function(data) {
 			console.log("失败", data);
@@ -101,13 +101,13 @@ function notevaluate(){
 	var id = sessionStorage.getItem("cusid");
 	$.ajax({
 		type : "post",
-		url : "/customer/notevaluate",
+		url : "./customer/notevaluate",
 		data:{id:id,},
 		dataType : "json",
 		success : function(data) {
 			console.log("成功", data);
 			orderevalist(data);
-			// location.href = "/toPage?url=e-commerce_order.html";
+			// location.href = "./toPage?url=e-commerce_order.html";
 		},
 		error : function(data) {
 			console.log("失败", data);
@@ -126,7 +126,7 @@ function orderevalist(data)
 		{
 		txt+=`
 		<div class = "article">
-		<img src="/customer/evaimgshow?pcname=${list[i].ordeProduct}" alt="图片" />
+		<img src="./customer/evaimgshow?pcname=${list[i].ordeProduct}" alt="图片" />
         <ul class="article-info">
             <li>${list[i].ordeProduct}</li>
             <li>${data[list[i].ordeProduct]}</li>
@@ -167,16 +167,16 @@ function evaluat(pcname,orid)
 	sessionStorage.setItem("pcname",pcname);
 }
 function defaultImg(img){
-	img.src="/images/user-lg.png";
+	img.src="./images/user-lg.png";
 }
 
 $(function(){
 var id = sessionStorage.getItem("cusid");
 
-$(".imgshow").attr("src","/customer/imgshow?id="+id);
+$(".imgshow").attr("src","./customer/imgshow?id="+id);
 })
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

@@ -32,10 +32,19 @@ public class OperatorExpImpl implements OperatorExp {
 		int hour = c.get(Calendar.HOUR_OF_DAY);
 		int minute = c.get(Calendar.MINUTE);
 		int second = c.get(Calendar.SECOND);
+		System.out.println("余数"+date%7);
 		System.out.println(year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second);
 		int montha = month - 1;
 		int datea = date - 1;
-		int datese = date - 7;
+	
+			int datese = date - 7;
+		
+				
+			
+			
+			
+			
+		System.out.println("date"+date);
 		example.setPageSizes(Integer.parseInt(request.getParameter("pagesize")));
 		example.setPageNums(Integer.parseInt(request.getParameter("pagenum")));
 		String data=year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
@@ -53,14 +62,36 @@ public class OperatorExpImpl implements OperatorExp {
   }else {
 	  if(Integer.parseInt(request.getParameter("time"))==1) {
 		  //近7天的
-	  String dataa=year + "-" + month + "-" + datese + " " + hour + ":" + minute + ":" + second;
-	  System.out.println("wi"+dataa);
-	  example.setId(1);
-	  example.setDataa(dataa);
-	  example.setData(data);
+		  if(date<8) {
+			    datese=31-7+date;
+			    System.out.println("datese"+datese);
+			    String dataa=year + "-" + montha + "-" + datese + " " + hour + ":" + minute + ":" + second;
+			    System.out.println("近7天dataa"+dataa);
+			    example.setId(1);
+				  example.setDataa(dataa);
+			    
+			}else {
+					datese = date - 7;
+					  String dataa=year + "-" + month + "-" + datese + " " + hour + ":" + minute + ":" + second;
+					  System.out.println("近7天dataa"+dataa);
+					  example.setId(1);
+					  example.setDataa(dataa);
+			}
+		  
+		  
+		  
+		  
+	  
+	  int datee = c.get(Calendar.DATE)+1;
+	  String dataaa=year + "-" + month + "-" + datee + " " + 00 + ":" + 00 + ":" + 00;
+	  System.out.println("近7天dataaa"+dataaa);
+	  example.setData(dataaa);
 	 // example.setPageSizes(1);
-	  System.out.println("近7天的"+allorderMapper.selectByExampleA(example).size());
-	  System.out.println(example.getPageSizes()+"--"+example.getPageNums());
+	  System.out.println("近7天的數"+allorderMapper.selectByExampleA(example).size());
+	
+	  
+	  
+	  
 	  return allorderMapper.selectByExampleA(example);
 	  }
 	  else {
@@ -135,14 +166,38 @@ public class OperatorExpImpl implements OperatorExp {
   }else {
 	  if(Integer.parseInt(request.getParameter("time"))==1) {
 		  //近7天的
-	  String dataa=year + "-" + month + "-" + datese + " " + hour + ":" + minute + ":" + second;
-	  System.out.println("wi"+dataa);
-	  example.setId(1);
-	  example.setDataa(dataa);
-	  example.setData(data);
-	 // example.setPageSizes(1);
-	  System.out.println("nide"+allorderMapper.selectByExampleA(example).size());
-	  System.out.println(example.getPageSizes()+"--"+example.getPageNums());
+//	  String dataa=year + "-" + month + "-" + datese + " " + hour + ":" + minute + ":" + second;
+//	  System.out.println("wi"+dataa);
+//	  example.setId(1);
+//	  example.setDataa(dataa);
+//	  example.setData(data);
+//	 // example.setPageSizes(1);
+//	  System.out.println("nide"+allorderMapper.selectByExampleA(example).size());
+//	  System.out.println(example.getPageSizes()+"--"+example.getPageNums());
+		  if(date<8) {
+			    datese=31-7+date;
+			    System.out.println("datese"+datese);
+			    String dataa=year + "-" + montha + "-" + datese + " " + hour + ":" + minute + ":" + second;
+			    System.out.println("近7天dataa"+dataa);
+			    example.setId(1);
+				  example.setDataa(dataa);
+			    
+			}else {
+					datese = date - 7;
+					  String dataa=year + "-" + month + "-" + datese + " " + hour + ":" + minute + ":" + second;
+					  System.out.println("近7天dataa"+dataa);
+					  example.setId(1);
+					  example.setDataa(dataa);
+			}
+		  
+		  
+		  
+		  
+	  
+	  int datee = c.get(Calendar.DATE)+1;
+	  String dataaa=year + "-" + month + "-" + datee + " " + 00 + ":" + 00 + ":" + 00;
+	  System.out.println("近7天dataaa"+dataaa);
+	  example.setData(dataaa);
 	  return allorderMapper.selectByExampleNum(example);
 	  }
 	  else {

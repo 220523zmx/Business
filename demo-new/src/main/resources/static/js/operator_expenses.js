@@ -158,7 +158,7 @@ function FuzzySearchA() {
 	
 	$.ajax({
 		type : "get",
-		url : "/expenses",
+		url : "./expenses",
 		data : {
 		time:time,
 		pagesize:pagesize,
@@ -170,7 +170,12 @@ function FuzzySearchA() {
 			$(".ser").empty();
 			
 			var da=data.code;
+			console.log("da為",da);
+		
+			
+			
 			das=Math.ceil(data.codea/2);
+			console.log("das為",das); 	
 			var tx="";
 			
 		    for(i=1;i<=das;i++){
@@ -218,7 +223,7 @@ function FuzzySearchAa() {
 	
 	$.ajax({
 		type : "get",
-		url : "/expenses",
+		url : "./expenses",
 		data : {
 		time:time,
 		pagesize:pagesize,
@@ -279,14 +284,14 @@ $(function(){
 } )
 $(function(){
 var id = sessionStorage.getItem("opeid");
-$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+$(".imgshow").attr("src","./operator/headimgshow?id="+id);
 })
 function defaultImg(img){
-	img.src="/images/default_user.png";
+	img.src="./images/default_user.png";
 }
 
 $(".oper-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })
 

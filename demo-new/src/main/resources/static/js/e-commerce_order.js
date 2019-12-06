@@ -17,7 +17,7 @@ $(function() {
 	var id = sessionStorage.getItem("cusid");
 	$.ajax({
 				type : "post",
-				url : "/customer/order",
+				url : "./customer/order",
 				dataType : "json",
 				data : {
 					id : id,
@@ -47,7 +47,7 @@ function orderlist(data){
 			txt +=`
 			<ul class="order-details"> 
 				<li> 
-					<img src="/customer/ordimgshow?pcname=${line[j].ordeProduct}" alt="图片" />
+					<img src="./customer/ordimgshow?pcname=${line[j].ordeProduct}" alt="图片" />
 					<ul> 
 						<li>${line[j].ordeProvidername}</li> 
 						<li>${line[j].ordeProduct}</li>
@@ -110,7 +110,7 @@ function deleteorderline(orderid,pcname)
 	var pcname = pcname;
 	$.ajax({
 		type : "post",
-		url : "/customer/deletepc",
+		url : "./customer/deletepc",
 		dataType : "json",
 		data : {
 			orderid : orderid,
@@ -118,7 +118,7 @@ function deleteorderline(orderid,pcname)
 		},
 		success : function(data) {
 			console.log("成功", data);
-			location.href = "/toPage?url=e-commerce_order.html";
+			location.href = "./toPage?url=e-commerce_order.html";
 		},
 		error : function(data) {
 			console.log("失败", data);
@@ -128,15 +128,15 @@ function deleteorderline(orderid,pcname)
 function pay(id)
 {
 	sessionStorage.setItem("topay",id);
-	location.href = "/toPage?url=e-commerce_settlement.html";
+	location.href = "./toPage?url=e-commerce_settlement.html";
 }
 function defaultImg(img){
-	img.src="/images/user-lg.png";
+	img.src="./images/user-lg.png";
 }
 
 $(function(){
 var id = sessionStorage.getItem("cusid");
-$(".imgshow").attr("src","/customer/imgshow?id="+id);
+$(".imgshow").attr("src","./customer/imgshow?id="+id);
 })
 
 $(".findlikeid").on("click",function()
@@ -148,7 +148,7 @@ $(".findlikeid").on("click",function()
 	console.log(orid,cuid);
 	$.ajax({
 		type : "post",
-		url : "/customer/ord_like",
+		url : "./customer/ord_like",
 		dataType : "json",
 		data : {
 			orid : orid,
@@ -196,7 +196,7 @@ function findbytime()
 	var endtime 	= sessionStorage.getItem("endtime");
 	$.ajax({
 		type : "post",
-		url : "/customer/ord_time",
+		url : "./customer/ord_time",
 		dataType : "json",
 		data : {
 			starttime : starttime,
@@ -222,5 +222,5 @@ function findbytime()
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

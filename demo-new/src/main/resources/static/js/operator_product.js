@@ -16,10 +16,10 @@ $(function(){
 } )
 $(function(){
 var id = sessionStorage.getItem("opeid");
-$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+$(".imgshow").attr("src","./operator/headimgshow?id="+id);
 })
 function defaultImg(img){
-	img.src="/images/default_user.png";
+	img.src="./images/default_user.png";
 }
 $(function(){
 	sessionStorage.setItem("likename","");
@@ -34,7 +34,7 @@ function ajaxget(){
 	$
 	.ajax({
 		type : "get",
-		url : "/operator/product",
+		url : "./operator/product",
 		dataType : "json",
 		data : {
 			likename:likename,
@@ -119,7 +119,7 @@ function statedown(pcid)
 	$
 	.ajax({
 		type : "post",
-		url : "/operator/statedown",
+		url : "./operator/statedown",
 		dataType : "json",
 		data : {
 			pcid:pcid,
@@ -143,7 +143,7 @@ function stateup(pcid){
 	$
 	.ajax({
 		type : "post",
-		url : "/operator/stateup",
+		url : "./operator/stateup",
 		dataType : "json",
 		data : {
 			pcid:pcid,
@@ -166,7 +166,7 @@ function productdelect(pcid){//删除
 	$
 	.ajax({
 		type : "post",
-		url : "/operator/productdelect",
+		url : "./operator/productdelect",
 		dataType : "json",
 		data : {
 			pcid:pcid,
@@ -257,7 +257,7 @@ function loststateup(){
 	$
 	.ajax({
 		type : "post",
-		url : "/operator/loststateup",
+		url : "./operator/loststateup",
 		dataType : "json",
 		data : {
 			str:str,
@@ -285,7 +285,7 @@ function loststatedown(){
 	$
 	.ajax({
 		type : "post",
-		url : "/operator/loststatedown",
+		url : "./operator/loststatedown",
 		dataType : "json",
 		data : {
 			str:str,
@@ -310,5 +310,5 @@ function loststatedown(){
 
 $(".oper-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

@@ -30,6 +30,44 @@ public class ServiceproviderWithBLOBs extends Serviceprovider {
 	private String servProviderWeichart;
 
 	private String servProviderCsphone;
+private String likename;
+	
+	private String state;
+	
+	private Integer Nowpage;
+	
+	private Integer Pagesize = 4;
+	public String getLikename() {
+		return likename;
+	}
+
+	public void setLikename(String likename) {
+		this.likename = likename;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public Integer getNowpage() {
+		return Nowpage;
+	}
+
+	public void setNowpage(Integer nowpage) {
+		Nowpage = (nowpage-1)*Pagesize;
+	}
+
+	public Integer getPagesize() {
+		return Pagesize;
+	}
+
+	public void setPagesize(Integer pagesize) {
+		Pagesize = pagesize;
+	}
 	public String getServProviderName() {
 		return servProviderName;
 	}

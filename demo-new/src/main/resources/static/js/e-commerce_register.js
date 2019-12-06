@@ -18,7 +18,7 @@ function CustomerRegister() {
 	console.log(phone, password, code);
 	$.ajax({
 		type : "post",
-		url : "/customer/register",
+		url : "./customer/register",
 		data : {
 			phone : phone,
 			password : password,
@@ -72,7 +72,7 @@ function initAddress() {
 	$
 			.ajax({
 				type : "post",
-				url : "/Address/init",
+				url : "./Address/init",
 				dataType : "json",
 				success : function(data) {
 					console.log("成功", data);
@@ -96,7 +96,7 @@ function getCity(provCode) {
 	$
 			.ajax({
 				type : "post",
-				url : "/Address/city",
+				url : "./Address/city",
 				dataType : "json",
 				data : {
 					provCode : provCode,
@@ -124,7 +124,7 @@ function getArea(citysCode) {
 	$
 			.ajax({
 				type : "post",
-				url : "/Address/area",
+				url : "./Address/area",
 				dataType : "json",
 				data : {
 					citysCode : citysCode,

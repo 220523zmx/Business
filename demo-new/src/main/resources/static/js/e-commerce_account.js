@@ -69,7 +69,7 @@ $(".password").on("click", function() {
 	console.log(oldpassword, newpassword, againpassword, phone);
 	$.ajax({
 		type : "post",
-		url : "/customer/password",
+		url : "./customer/password",
 		data : {
 			oldpassword : oldpassword,
 			newpassword : newpassword,
@@ -95,7 +95,7 @@ $(".information").on("click", function() {
 	console.log(sex, name, email, phone);
 	$.ajax({
 		type : "post",
-		url : "/customer/information",
+		url : "./customer/information",
 		data : {
 			sex : sex,
 			name : name,
@@ -113,16 +113,16 @@ $(".information").on("click", function() {
 	})
 })
 function defaultImg(img){
-		img.src="/images/user-lg.png";
+		img.src="./images/user-lg.png";
 	}
 
 $(function(){
 	var id = sessionStorage.getItem("cusid");
 	
-$(".imgshow").attr("src","/customer/imgshow?id="+id);
+$(".imgshow").attr("src","./customer/imgshow?id="+id);
 })
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

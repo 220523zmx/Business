@@ -11,11 +11,11 @@ $(function(){
 
 $(function() {
 	var id = sessionStorage.getItem("serid");
-	$(".imgshow").attr("src", "/service/headimgshow?id=" + id);
-	$(".storeimgshow").attr("src", "/service/storeimgshow?id=" + id);
+	$(".imgshow").attr("src", "./service/headimgshow?id=" + id);
+	$(".storeimgshow").attr("src", "./service/storeimgshow?id=" + id);
 })
 function defaultImg(img) {
-	img.src = "/images/default_user.png";
+	img.src = "./images/default_user.png";
 }
 
 
@@ -41,7 +41,7 @@ $(".pvintpupto").on("click",function(){
 	$
 	.ajax({
 		type : "post",
-		url : "/service/updatepvint",
+		url : "./service/updatepvint",
 		dataType : "json",
 		data : {
 			pvid:pvid,
@@ -65,5 +65,5 @@ $(".pvintpupto").on("click",function(){
 })
 $(".serv-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

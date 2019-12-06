@@ -9,4 +9,6 @@ import com.datangedu.cn.model.serviceproduct.Serviceproduct;
 public interface OperatorRecommendServlet {
 	public long countorder(String likename);
 	public List<Serviceproduct> topage(HttpServletRequest request) ;
+	public int ajaxreco(HttpServletRequest request);
+	public int ajaxnece(HttpServletRequest request);
 }

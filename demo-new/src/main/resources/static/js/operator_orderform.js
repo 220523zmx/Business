@@ -40,7 +40,7 @@ function getOrderInfo(){
   		  //请求类型
   		  type:"get",
   		  //请求路径
-  		  url:"/getOrderInfo",
+  		  url:"./getOrderInfo",
   		  //传递参数
   		  data:{
   			id:id,
@@ -94,7 +94,7 @@ function delOrder(orderId){
 		 //请求类型
 		 type:"post",
 		 //请求路径
-		 url:"/orderdelete",
+		 url:"./orderdelete",
 		 //传递参数
 		 data:{
 			 orderId:orderId,
@@ -120,14 +120,14 @@ $(function(){
 } )
 $(function(){
 var id = sessionStorage.getItem("opeid");
-$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+$(".imgshow").attr("src","./operator/headimgshow?id="+id);
 })
 function defaultImg(img){
-	img.src="/images/default_user.png";
+	img.src="./images/default_user.png";
 }
 
 $(".oper-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })
 

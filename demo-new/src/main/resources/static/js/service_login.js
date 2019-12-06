@@ -1,5 +1,5 @@
 /*$(".login-btn").on("click", function(){
-    location.href="/toPage?url=service_product.html"
+    location.href="./toPage?url=service_product.html"
 })*/
 $(function() {
 	var timestamp = (new Date()).valueOf();
@@ -17,7 +17,7 @@ $(".login-btn").on("click", function(){
 	console.log(phone, password, code);
 	$.ajax({
 		type : "post",
-		url : "/service/login",
+		url : "./service/login",
 		data : {
 			phone 		: phone,
 			password 	: password,
@@ -32,7 +32,7 @@ $(".login-btn").on("click", function(){
 				sessionStorage.setItem("serid",data.id);
 				sessionStorage.setItem("serphone",data.phone);
 				sessionStorage.setItem("pvname",data.pvname);
-				location.href="/toPage?url=service_product.html";
+				location.href="./toPage?url=service_product.html";
 			}
 			console.log("成功", data);
 		},

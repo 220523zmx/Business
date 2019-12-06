@@ -376,6 +376,15 @@
   </update>
   <update id="saveCuImg" parameterType="com.datangedu.cn.model.customers.Customers">
     update customers set CUST_PORTRAIT = #{custPortrait} where CUST_PHONE = #{custPhone}
-</update>
+  </update>
+  <select id="countBylikename"  parameterType="java.lang.String" resultType="java.lang.Long">
+      	select count(*) from customers where  CUST_NAME like '%${likename}%'
+  </select>
+  <select id="selectbynamenp" parameterType="com.datangedu.cn.model.customers.Customers" resultMap="ResultMapWithBLOBs">
+		select * from customers where CUST_NAME like '%${likename}%' 
+		<if test="Nowpage >=0">
+      		limit ${Nowpage},${Pagesize}
+    	</if>
+ </select>
   
 </mapper>

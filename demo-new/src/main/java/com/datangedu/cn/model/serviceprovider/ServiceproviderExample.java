@@ -12,8 +12,16 @@ public class ServiceproviderExample {
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
-    
-    protected int pagesize;
+    protected int findstate;
+    public int getFindstate() {
+		return findstate;
+	}
+
+	public void setFindstate(int findstate) {
+		this.findstate = findstate;
+	}
+
+	protected int pagesize;
     public int getPagesize() {
 		return pagesize;
 	}

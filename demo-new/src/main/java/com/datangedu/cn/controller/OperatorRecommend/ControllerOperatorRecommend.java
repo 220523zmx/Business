@@ -51,5 +51,36 @@ public class ControllerOperatorRecommend {
 		
 		return map;
 	}
-
+	@ResponseBody
+	@RequestMapping(value = "/ajaxreco", method = RequestMethod.GET)
+	public Map<String, Object> ajaxreco(HttpServletRequest request) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		int i = operatorRecommendServlet.ajaxreco(request);
+		System.out.println(i);
+		if(i!= 0){
+			map.put("code", 1);
+			map.put("state", "更改成功");
+		}else{
+			map.put("code", 0);
+			map.put("state", "更改失败");
+		}
+		return map;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/ajaxnece", method = RequestMethod.GET)
+	public Map<String, Object> ajaxnece(HttpServletRequest request) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		int i = operatorRecommendServlet.ajaxnece(request);
+		System.out.println(i);
+		if(i!=0){
+			map.put("code", 1);
+			map.put("state", "更改成功");
+		}else{
+			map.put("code", 0);
+			map.put("state", "更改失败");
+		}
+		return map;
+	}
 }

@@ -111,7 +111,7 @@
   <select id="selectByExampleO" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="BaseResultMap">
   
   SELECT *FROM serviceprovider 
-WHERE SERV_PROVIDER_NAME LIKE "%${name}%" 
+WHERE SERV_PROVIDER_NAME LIKE "%${name}%" and  SERV_PROVIDER_STATE = "${findstate}"
 LIMIT ${pagesize},${pagesnum};
   
   </select>
@@ -119,7 +119,7 @@ LIMIT ${pagesize},${pagesnum};
    <select id="selectByExampleOall" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderExample" resultMap="BaseResultMap">
   
  SELECT * FROM serviceprovider 
-WHERE SERV_PROVIDER_NAME LIKE "%${name}%" ;
+WHERE SERV_PROVIDER_NAME LIKE "%${name}%" and  SERV_PROVIDER_STATE = "${findstate}";
 
   
   </select>
@@ -495,4 +495,13 @@ WHERE SERV_PROVIDER_NAME LIKE "%${name}%" ;
 <update id="saveStImg" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs">
     update serviceprovider set SERV_PROVIDER_BUSINESSLICENSE = #{servProviderBusinesslicense} where SERV_PROVIDER_ID = #{servProviderId}
 </update>
+<select id="countBylikename"  parameterType="java.lang.String" resultType="java.lang.Long">
+      	select count(*) from serviceprovider where  SERV_PROVIDER_NAME like '%${likename}%'
+  </select>
+  <select id="selectbynamenp" parameterType="com.datangedu.cn.model.serviceprovider.ServiceproviderWithBLOBs" resultMap="ResultMapWithBLOBs">
+		select * from serviceprovider where SERV_PROVIDER_NAME like '%${likename}%' 
+		<if test="Nowpage >=0">
+      		limit ${Nowpage},${Pagesize}
+    	</if>
+ </select>
 </mapper>

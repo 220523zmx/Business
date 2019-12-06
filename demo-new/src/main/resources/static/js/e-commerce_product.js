@@ -13,7 +13,7 @@ function productlist(data)
 		var providerid = productlist[i].servProviderid;
 		txt +=`
 			<div class="article">
-				<img src="/customer/proimgshow?id=${productlist[i].servProductid}" alt="图片" />
+				<img src="./customer/proimgshow?id=${productlist[i].servProductid}" alt="图片" />
 				<ul class="article-info" value = "${productlist[i].servProductid}">
 					<li>${productlist[i].servProductname}</li>
 					<li>${productlist[i].servInstructions}</li>
@@ -34,7 +34,7 @@ function productlist(data)
 $(function(){
 	$.ajax({
 		type : "post",
-		url : "/customer/product",
+		url : "./customer/product",
 		dataType : "json",
 		success : function(data) {
 			console.log("成功",data);
@@ -54,7 +54,7 @@ $(function(){
 					// 升序
 					$.ajax({
 						type : "post",
-						url : "/customer/priceEsc",
+						url : "./customer/priceEsc",
 						dataType : "json",
 						success : function(data) {
 							console.log("成功",data);
@@ -69,7 +69,7 @@ $(function(){
 					// 降序
 					$.ajax({
 						type : "post",
-						url : "/customer/priceDesc",
+						url : "./customer/priceDesc",
 						dataType : "json",
 						success : function(data) {
 							console.log("成功",data);
@@ -85,7 +85,7 @@ $(function(){
 $(".nav-active").on("click",function(){
 	$.ajax({
 		type : "post",
-		url : "/customer/numberDesc",
+		url : "./customer/numberDesc",
 		dataType : "json",
 		success : function(data) {
 			console.log("成功",data);
@@ -126,7 +126,7 @@ function add_cart(procid,provid,procprice)
 	var cuid = sessionStorage.getItem("cusid");
 	$.ajax({
 		type : "post",
-		url : "/customer/add_cart",
+		url : "./customer/add_cart",
 		data:{
 			cuid: cuid,
 			pcid: pcid,
@@ -151,7 +151,7 @@ var pcpri = procprice;
 var cuid = sessionStorage.getItem("cusid");
 $.ajax({
 	type : "post",
-	url : "/customer/just_buy",
+	url : "./customer/just_buy",
 	data:{
 		cuid: cuid,
 		pcid: pcid,
@@ -162,7 +162,7 @@ $.ajax({
 	success : function(data) {
 		console.log("成功",data);
 		sessionStorage.setItem("topay",data.str);
-		location.href="/toPage?url=e-commerce_settlement.html"
+		location.href="./toPage?url=e-commerce_settlement.html"
 	},
 	error : function(data) {
 		console.log("失败",data);
@@ -175,7 +175,7 @@ $.ajax({
 $(function(){
 	var id = sessionStorage.getItem("cusid");
 
-	$(".imgshow").attr("src","/customer/imgshow?id="+id);
+	$(".imgshow").attr("src","./customer/imgshow?id="+id);
 })
 	
 $(".search-btn").on("click",function(){
@@ -184,7 +184,7 @@ $(".search-btn").on("click",function(){
 	console.log(branch,likename);
 	$.ajax({
 		type : "post",
-		url : "/customer/pro_like",
+		url : "./customer/pro_like",
 		data:{
 			branch:branch,
 			likename:likename,
@@ -208,11 +208,11 @@ $(".search-btn").on("click",function(){
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })
 
 $(".user-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })
 

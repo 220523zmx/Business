@@ -15,7 +15,7 @@ $(".login-btn").on("click", function() {
 	console.log(phone, password, code);
 	$.ajax({
 		type : "post",
-		url : "/customer/login",
+		url : "./customer/login",
 		data : {
 			phone : phone,
 			password : password,
@@ -29,7 +29,7 @@ $(".login-btn").on("click", function() {
 				console.log(data.id, data.phone);
 				sessionStorage.setItem("cusphone", data.phone);
 				sessionStorage.setItem("cusid", data.id);
-				location.href = "/toPage?url=e-commerce_product.html";
+				location.href = "./toPage?url=e-commerce_product.html";
 
 			}
 			console.log("成功", data);

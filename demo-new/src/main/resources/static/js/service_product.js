@@ -17,7 +17,7 @@ function findproduct(){
 	$
 	.ajax({
 		type : "get",
-		url : "/service/prodctshow",
+		url : "./service/prodctshow",
 		dataType : "json",
 		data : {
 			serid:serid,
@@ -104,11 +104,11 @@ $(".cancel").on("click", function(event){
     console.log("取消");
 })
 function defaultImg(img){
-	img.src="/images/default_user.png";
+	img.src="./images/default_user.png";
 }
 $(function() {
 	var id = sessionStorage.getItem("serid");
-	$(".imgshow").attr("src", "/service/headimgshow?id=" + id);
+	$(".imgshow").attr("src", "./service/headimgshow?id=" + id);
 })
 function randomString(len) {
 	　　len = len || 32;
@@ -128,7 +128,7 @@ function prodelete(pcid)
 	$
 	.ajax({
 		type : "post",
-		url : "/service/prodelete",
+		url : "./service/prodelete",
 		dataType : "json",
 		data : {
 			pvid:pvid,
@@ -149,7 +149,7 @@ function stateup(pcid)
 	$
 	.ajax({
 		type : "post",
-		url : "/service/stateup",
+		url : "./service/stateup",
 		dataType : "json",
 		data : {
 			pvid:pvid,
@@ -174,7 +174,7 @@ function statedown(pcid)
 	$
 	.ajax({
 		type : "post",
-		url : "/service/statedown",
+		url : "./service/statedown",
 		dataType : "json",
 		data : {
 			pvid:pvid,
@@ -200,7 +200,7 @@ $(".fa-fw").on("click",function(){
 	$
 	.ajax({
 		type : "post",
-		url : "/service/productnamelike",
+		url : "./service/productnamelike",
 		dataType : "json",
 		data : {
 			pvid:pvid,
@@ -222,5 +222,5 @@ $(".fa-fw").on("click",function(){
 })
 $(".serv-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

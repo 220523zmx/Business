@@ -12,7 +12,7 @@ $(function() {
 })
 $(function() {
 	var id = sessionStorage.getItem("serid");
-	$(".imgshow").attr("src", "/service/headimgshow?id=" + id);
+	$(".imgshow").attr("src", "./service/headimgshow?id=" + id);
 })
 $(".user-arrow-down").on("click", function() {
 	if ($(".dropdown").is(":hidden")) {
@@ -54,7 +54,7 @@ $(".cancel").on("click", function(event) {
 	console.log("取消");
 })
 function defaultImg(img) {
-	img.src = "/images/default_user.png";
+	img.src = "./images/default_user.png";
 }
 $(function() {
 	// 初始化省市区
@@ -92,7 +92,7 @@ function initAddress() {
 	$
 			.ajax({
 				type : "post",
-				url : "/Address/init",
+				url : "./Address/init",
 				dataType : "json",
 				success : function(data) {
 					console.log("成功", data);
@@ -117,7 +117,7 @@ function getCity(provCode) {
 	$
 			.ajax({
 				type : "post",
-				url : "/Address/city",
+				url : "./Address/city",
 				dataType : "json",
 				data : {
 					provCode : provCode,
@@ -152,7 +152,7 @@ $(".save").on("click", function() {
 	console.log(pvproname, pvphone, pvwechart, pvqq, pvemail,pvid);
 	$.ajax({
 		type : "post",
-		url : "/service/information",
+		url : "./service/information",
 		dataType : "json",
 		data : {
 			pvproname : pvproname,
@@ -186,7 +186,7 @@ function getArea(citysCode) {
 	$
 			.ajax({
 				type : "post",
-				url : "/Address/area",
+				url : "./Address/area",
 				dataType : "json",
 				data : {
 					citysCode : citysCode,
@@ -216,7 +216,7 @@ function inforshow()
 	$
 	.ajax({
 		type : "get",
-		url : "/service/lineshow",
+		url : "./service/lineshow",
 		dataType : "json",
 		data : {
 			pvid:pvid,
@@ -277,5 +277,5 @@ function toupdate()
 }
 $(".serv-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })

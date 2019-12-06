@@ -26,10 +26,10 @@ $(function(){
 } )
 $(function(){
 var id = sessionStorage.getItem("opeid");
-$(".imgshow").attr("src","/operator/headimgshow?id="+id);
+$(".imgshow").attr("src","./operator/headimgshow?id="+id);
 })
 function defaultImg(img){
-	img.src="/images/default_user.png";
+	img.src="./images/default_user.png";
 }
 
 $(function(){
@@ -48,7 +48,7 @@ function countorder(){
 	var orderby = sessionStorage.getItem("orderby");
 	$.ajax({
 		type : "get",
-		url : "/operator/countorder",
+		url : "./operator/countorder",
 		dataType : "json",
 		data:{
 			likename:likename,
@@ -162,7 +162,7 @@ function  ajaxget(likename,nowpage){//分页模糊ajax.get请求
 	console.log("模糊字段","(",likename,")","当前页","(",nowpage,")","搜索状态","(",orderby,")");
 	$.ajax({
 		type : "get",
-		url : "/operator/topage",
+		url : "./operator/topage",
 		dataType : "json",
 		data:{
 			likename:likename,
@@ -197,15 +197,15 @@ function orderlistshow(data)
 		        `
 				if(list[i].servRecommended==1)
 		        {
-		        	txt +=`<td><input class="checkbox" type="checkbox" checked="checked" onclick = "updatereco(${list[i].servProductid})"/></td>`
+		        	txt +=`<td><input class=" checkbox" name= "${list[i].servProductid}" type="checkbox" checked="checked" onchange = "updatereco(this)"./></td>`
 		        }else{
-		        	txt +=`<td><input class="checkbox" type="checkbox" onclick = "updatereco(${list[i].servProductid})"/></td>`
+		        	txt +=`<td><input class=" checkbox" name= "${list[i].servProductid}" type="checkbox"  onchange = "updatereco(this)"./></td>`
 		        }
 				if(list[i].servNecessary==1)
 				{
-					txt +=`<td><input class="checkbox" type="checkbox" checked="checked" onclick = "updatenece(${list[i].servProductid})"/></td></tr>`
+					txt +=`<td><input class=" checkbox" name= "${list[i].servProductid}" type="checkbox" onchange="checked" onclick = "updatenece(this)"./></td></tr>`
 				}else{
-					txt +=`<td><input class="checkbox" type="checkbox" onclick = "updatenece(${list[i].servProductid})"/></td></tr>`
+					txt +=`<td><input class=" checkbox" name= "${list[i].servProductid}" type="checkbox"  onchange = "updatenece(this)"./></td></tr>`
 				}
 		}
 		$(".productlist").append(txt);
@@ -306,5 +306,66 @@ $(function(){
 
 $(".oper-quit").on("click", function() {
 	sessionStorage.clear();
-	location.href="/toPage?url=index.html"
+	location.href="./toPage?url=index.html"
 })
+function updatereco(check){
+	var checked = check.checked;
+	console.log("updatereco",checked);
+	console.log("updatereco",check.name);
+	if(checked){
+		ajaxreco(check.name,1);
+		
+	}else{
+		ajaxreco(check.name,0);
+	}
+	
+}
+function updatenece(check){
+	var checked = check.checked;
+	console.log("updatereco",checked);
+	console.log("updatereco",check.name);
+	if(checked){
+		ajaxnece(check.name,1);
+		
+	}else{
+		ajaxnece(check.name,0);
+	}
+	
+}
+function ajaxreco(id,state){
+	$.ajax({
+		type : "get",
+		url : "./operator/ajaxreco",
+		dataType : "json",
+		data:{
+			id:id,
+			state:state,
+		},
+		success : function(data) {
+			console.log("成功", data);
+			alert(data.state);
+		},
+		error : function(data) {
+			console.log("失败");
+		}
+	})
+	
+}
+function ajaxnece(id,state){
+	$.ajax({
+		type : "get",
+		url : "./operator/ajaxnece",
+		dataType : "json",
+		data:{
+			id:id,
+			state:state,
+		},
+		success : function(data) {
+			console.log("成功", data);
+			alert(data.state);
+		},
+		error : function(data) {
+			console.log("失败");
+		}
+	})
+}

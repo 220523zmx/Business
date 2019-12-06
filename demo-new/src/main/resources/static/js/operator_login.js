@@ -15,7 +15,7 @@ $(".login-btn").on("click", function() {
 	console.log(phone, password, code);
 	$.ajax({
 		type : "post",
-		url : "/operator/login",
+		url : "./operator/login",
 		data : {
 			phone : phone,
 			password : password,
@@ -30,7 +30,7 @@ $(".login-btn").on("click", function() {
 				sessionStorage.setItem("opephone", data.phone);
 				sessionStorage.setItem("opeid", data.id);
 				sessionStorage.setItem("opename", data.name);
-				location.href="/toPage?url=operator_product.html"
+				location.href="./toPage?url=operator_product.html"
 
 			}
 			console.log("成功", data);

@@ -39,4 +39,8 @@ public interface CustomersMapper {
 	int updateByPrimaryKey(Customers record);
 
 	int saveCuImg(Customers record);
+	
+	long countBylikename(String likename);
+	
+	List<Customers> selectbynamenp(Customers record);
 }

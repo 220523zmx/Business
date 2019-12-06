@@ -9,5 +9,7 @@ import com.datangedu.cn.model.serviceprovider.Serviceprovider;
 public interface getListSelect {
 	public List<Serviceprovider> MOHuFSelect(HttpServletRequest request);
 	public List<Serviceprovider> MOHuFSelectS(HttpServletRequest request);
+	public int updatedown(HttpServletRequest request) ;
+	public int updateup(HttpServletRequest request) ;
 }
 
